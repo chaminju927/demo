@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn"></button>
+    <div id="dataBox"></div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $('#btn').click(function() {
+            $.ajax({
+    			url: "http://localhsot:8080/list", 
+    			data: { //전송 데이터
+    				"userId" : 1,
+    				"id" : 1
+    			},
+    			type: "GET",
+    			async: true, 
+    			dataType: json,
+    			success: function(response) {
+    				console.log(response);   				
+    			},
+    			error: function(xhr) {
+    				console.log(xhr);    				
+    			// },
+    			// complete:function(data,textStatus) {
+    			// 	console.log("[complete] : " + textStatus);
+    			// 	console.log("");    				
+    			}
+    		});
+        })
+    </script>
+</body>
+</html>
