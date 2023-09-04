@@ -16,8 +16,8 @@ public class WorkerController {
 	
 	@GetMapping("/list/{no}")
 	public Object list(@PathVariable(value ="no") int no) {
-		workerService.getClass();
-		return "list";
+		return workerService.get(no);
+		
 	}
 	
 	

@@ -1,0 +1,6 @@
+/application.properties
+/example/
+/mapper/
+/static/
+/worker-mapper.xml
+/mybatis/
