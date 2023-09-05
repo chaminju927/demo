@@ -9,7 +9,7 @@
   <id column="phone" property="phone"/>
 </resultMap>
  
-<select id="getWorker" resultType="demo.example.dao.WorkerDao" parameterType="Integer">
+<select id="getWorker" parameterType="int" resultMap="workerMap" >
 	select *
 	from worker
 	where no=#{no}

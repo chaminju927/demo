@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+  <typeAliases>
+    <typeAlias type="demo.example.vo.Worker" alias="workerMap" />    
+  </typeAliases>
+   <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="name" value="${name}"/>
+                <property name="no" value="${no}"/>
+                <property name="email" value="${email}"/>
+                <property name="phone" value="${phone}"/>
+            </dataSource>
+        </environment>
+    </environments>
+ 
+    <mappers>
+        <mapper resource="demo/example/dao/WorkerDao.xml"/>
+    </mappers>
+
+</configuration>
