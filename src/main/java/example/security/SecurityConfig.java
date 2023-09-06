@@ -1,43 +1,58 @@
-//package example.security;
-//
-//import org.springframework.context.annotation.Bean;
-//import org.springframework.context.annotation.Configuration;
-//import org.springframework.http.HttpMethod;
-//import org.springframework.security.authentication.ReactiveAuthenticationManager;
-//import org.springframework.security.config.web.server.ServerHttpSecurity;
-//import org.springframework.security.web.authentication.preauth.x509.SubjectDnX509PrincipalExtractor;
-//import org.springframework.security.web.server.SecurityWebFilterChain;
-//import org.springframework.security.web.server.authentication.logout.DelegatingServerLogoutHandler;
-//import org.springframework.security.web.server.authentication.logout.SecurityContextServerLogoutHandler;
-//import org.springframework.security.web.server.authentication.logout.WebSessionServerLogoutHandler;
-//
-//
-//@Configuration
-//public class SecurityConfig {
-//	
-//	// 정보 조회시 인증
-//	@Bean
-//	public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
-//		SubjectDnX509PrincipalExtractor principalExtractor =
-//		        new SubjectDnX509PrincipalExtractor();
-//
-//		principalExtractor.setSubjectDnRegex("OU=(.*?)(?:,|$)"); 
-//
-//		ReactiveAuthenticationManager authenticationManager = authentication -> {
-//			authentication.setAuthenticated("차민주".equals(authentication.getName()));
-//			return Mono.just(authentication);
-//		};
-//		http
-//			.x509(x509 -> x509
-//				    .principalExtractor(principalExtractor)
-//				    .authenticationManager(authenticationManager)
-//			)
-//			.authorizeExchange(exchanges -> exchanges
-//			    .anyExchange().authenticated()
-//			);
-//		return http.build();
-//	}
-//	
+package example.security;
+
+import java.io.IOException;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+	protected void configure(HttpSecurity http) throws Exception {
+		http
+	    .formLogin()
+	    .loginPage("/login.html")
+	    .defaultSuccessUrl("/")
+	    .failureUrl("/login")
+	    .usernameParameter("username")
+	    .passwordParameter("password")
+	    //.loginProcessingUrl("/login_proc")
+	    .successHandler(
+	            new AuthenticationSuccessHandler() {
+	                @Override
+	                public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
+	                    System.out.println("authentication : " + authentication.getName());
+	                    HttpSession session = request.getSession();
+	            		session.setAttribute("Name :", authentication.getName());
+	                    response.sendRedirect("/"); // 인증이 성공한 후에는 root로 이동
+	                }
+	            }
+	    )
+	    .failureHandler(
+                new AuthenticationFailureHandler() {
+                    @Override
+                    public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
+                        System.out.println("exception : " + exception.getMessage());
+                        response.sendRedirect("/login");
+                    }
+                }
+        )
+	    .permitAll();
+	}
+	
+	
+	
 //	// 로그아웃
 //	@Bean
 //	SecurityWebFilterChain http(ServerHttpSecurity http) throws Exception {
@@ -49,7 +64,7 @@
 //	        .logout((logout) -> logout.logoutHandler(logoutHandler));
 //	    return http.build();
 //	}
-//	
+	
 //	//request 처리
 //	static final String USER = "USER";
 //	@Bean
@@ -67,19 +82,8 @@
 //		return http.build();
 //
 //	}
-//
-////	//servlet app
-////	@Bean
-////	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-////		http
-////			.formLogin(form -> form
-////					.loginPage("/login")
-////					.permitAll()
-////					);
-////		
-////		return http.build();
-////	} 
-//
-//	}
-//    
-//
+
+
+	}
+    
+

@@ -3,14 +3,16 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+<properties resource="resources/appliation.properties" />
 
   <typeAliases>
     <typeAlias type="demo.example.vo.Worker" alias="workerMap" />    
   </typeAliases>
+  
    <environments default="development">
-        <environment id="development">
+         <environment id="development">
             <transactionManager type="JDBC"/>
-            <dataSource type="POOLED">
+            <dataSource type="UNPOOLED">
                 <property name="name" value="${name}"/>
                 <property name="no" value="${no}"/>
                 <property name="email" value="${email}"/>
@@ -20,7 +22,7 @@
     </environments>
  
     <mappers>
-        <mapper resource="demo/example/dao/WorkerDao.xml"/>
+        <mapper resource="demo/mapper/WorkerDao.xml"/>
     </mappers>
 
 </configuration>

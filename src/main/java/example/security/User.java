@@ -1,43 +1,24 @@
-//package example.security;
-//
-//import java.util.List;
-//
-//public class User {
-//	
-//	//private @Id String id;	
-//	private String name;
-//	private String password;
-//	private List<String> roles;
-//	
-//	private User() {}
-//	
-//	public User(String name, String password, List<String> roles ) {
-//		this.name = name;
-//		this.password = password;
-//		this.roles = roles;
-//	}
-//
-//	public String getName() {
-//		return name;
-//	}
-//
-//	public void setName(String name) {
-//		this.name = name;
-//	}
-//
-//	public String getPassword() {
-//		return password;
-//	}
-//
-//	public void setPassword(String password) {
-//		this.password = password;
-//	}
-//
-//	public List<String> getRoles() {
-//		return roles;
-//	}
-//
-//	public void setRoles(List<String> roles) {
-//		this.roles = roles;
-//	}
-//}
+package example.security;
+
+public class User {
+		
+	@Override
+	public String toString() {
+		return "User [UserName=" + UserName + ", UserPw=" + UserPw + "]";
+	}
+	private String UserName;
+	private String UserPw;
+	public String getUserName() {
+		return UserName;
+	}
+	public void setUserName(String userName) {
+		UserName = userName;
+	}
+	public String getUserPw() {
+		return UserPw;
+	}
+	public void setUserPw(String userPw) {
+		UserPw = userPw;
+	}
+	
+}

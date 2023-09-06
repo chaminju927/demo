@@ -6,33 +6,33 @@
     <title>Document</title>
 </head>
 <body>
-    <button id="btn"></button>
-    <div id="dataBox"></div>
+	<input type="text" placeholder="사번 입력" id="no">
+    <button id="btn">조회</button>
+    <div id="dataBox">
+		<!-- 이름 사번 이메일 폰 정보 -->
+	</div>
+    
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $('#btn').click(function() {
-            $.ajax({
-    			url: "http://localhsot:8080/list", 
-    			data: { //전송 데이터
-    				"userId" : 1,
-    				"id" : 1
-    			},
-    			type: "GET",
-    			async: true, 
-    			dataType: json,
-    			success: function(response) {
-    				console.log(response);   				
-    			},
-    			error: function(xhr) {
-    				console.log(xhr);    				
-    			// },
-    			// complete:function(data,textStatus) {
-    			// 	console.log("[complete] : " + textStatus);
-    			// 	console.log("");    				
-    			}
-    		});
-        })
-    </script>
+			fetch('http://localhost:8080/list/{no}',{
+				method: "GET"
+			})
+			.then((response) => response.json())
+			.then((data) => {
+				console.log("success");
+				console.log(data);
+
+
+
+			})
+			.catch((error) => {
+				console.error("실패:", error);
+			});
+			
+		
+		})
+		</script>
 </body>
 </html>
