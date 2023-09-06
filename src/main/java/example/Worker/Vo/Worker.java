@@ -1,4 +1,4 @@
-package example.vo;
+package example.Worker.Vo;
 
 //@Entity
 public class Worker {

@@ -1,4 +1,4 @@
-package example.security;
+package example.Security;
 
 public class User {
 		

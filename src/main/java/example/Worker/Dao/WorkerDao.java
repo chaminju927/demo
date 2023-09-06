@@ -1,9 +1,9 @@
-package example.dao;
+package example.Worker.Dao;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
-import example.vo.Worker;
+import example.Worker.Vo.Worker;
 
 	@Mapper
 	@Repository

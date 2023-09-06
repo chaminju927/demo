@@ -10,19 +10,38 @@
     <button id="btn">조회</button>
     <div id="dataBox">
 		<!-- 이름 사번 이메일 폰 정보 -->
+		<!-- <table>
+	        <thead>
+	          <tr>
+	            <th>이름</th>
+	            <th>사번</th>
+	            <th>이메일</th>
+	            <th>휴대폰</th>
+	          </tr>
+	        </thead>
+	        <tbody>
+	            <tr>
+	              <td><span id="name"></span></td>
+	              <td></td>
+	              <td></td>
+	              <td></td>
+	            </tr>
+	          </tbody> 
+	        </table>-->
 	</div>
     
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $('#btn').click(function() {
-			fetch('http://localhost:8080/list/{no}',{
+			fetch(`http://localhost:8080/list/${no}`,{
 				method: "GET"
 			})
 			.then((response) => response.json())
 			.then((data) => {
 				console.log("success");
 				console.log(data);
+				//$('#name').val();
 
 
 

@@ -1,11 +1,11 @@
-package example.service.Impl;
+package example.Worker.Service.ServiceImpl;
 
 
 import org.springframework.stereotype.Service;
 
-import example.dao.WorkerDao;
-import example.service.WorkerService;
-import example.vo.Worker;
+import example.Worker.Dao.WorkerDao;
+import example.Worker.Service.WorkerService;
+import example.Worker.Vo.Worker;
 import jakarta.annotation.Resource;
 
 @Service

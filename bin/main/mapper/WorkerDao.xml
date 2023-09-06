@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="demo.example.dao.WorkerDao">
+<resultMap type="worker" id="workerMap">
+  <id column="name" property="name"/>
+  <id column="no" property="no"/>
+  <id column="email" property="email"/>
+  <id column="phone" property="phone"/>
+</resultMap>
+ 
+<select id="getWorker" parameterType="Integer" resultMap="workerMap" >
+	select *
+	from worker
+	where no=#{no}
+</select>
+
+</mapper>
