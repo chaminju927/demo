@@ -3,10 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-<properties resource="resources/appliation.properties" />
-
+<properties resource="appliation.properties" />
   <typeAliases>
-    <typeAlias type="demo.example.vo.Worker" alias="workerMap" />    
+    <typeAlias type="demo.example.Worker.Vo.Worker" alias="workerMap" />    
   </typeAliases>
   
    <environments default="development">
@@ -22,7 +21,7 @@
     </environments>
  
     <mappers>
-        <mapper resource="demo/mapper/WorkerDao.xml"/>
+        <mapper resource="mybatis/mapper/WorkerDao.xml"/>
     </mappers>
 
 </configuration>

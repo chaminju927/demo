@@ -6,11 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-	<input type="text" placeholder="사번 입력" id="no">
+	<input type="number" id="no" placeholder="사번 입력"  >
     <button id="btn">조회</button>
     <div id="dataBox">
 		<!-- 이름 사번 이메일 폰 정보 -->
-		<!-- <table>
+		 <!--<table>
 	        <thead>
 	          <tr>
 	            <th>이름</th>
@@ -27,31 +27,29 @@
 	              <td></td>
 	            </tr>
 	          </tbody> 
-	        </table>-->
+	        </table> -->
 	</div>
     
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
+		
         $('#btn').click(function() {
-			fetch(`http://localhost:8080/list/${no}`,{
+			var no = $('#no').val();
+			fetch(`http://localhost:8080/success/${no}`,{
 				method: "GET"
 			})
 			.then((response) => response.json())
 			.then((data) => {
 				console.log("success");
 				console.log(data);
-				//$('#name').val();
-
-
+				//$('#name').val(); //data 값 넣기
 
 			})
 			.catch((error) => {
 				console.error("실패:", error);
 			});
-			
-		
-		})
+		});
 		</script>
 </body>
 </html>

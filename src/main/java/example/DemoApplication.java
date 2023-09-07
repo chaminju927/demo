@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin("*")
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "demo.example")
 @RestController
 public class DemoApplication {
 

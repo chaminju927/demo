@@ -1,46 +1,75 @@
-plugins {
-	id 'java'
-	id 'application' 
-    id 'eclipse'
-	id 'org.springframework.boot' version '2.2.5.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+buildscript {
+    repositories {
+        mavenLocal()
+        maven { url 'https://maven.aliyun.com/repository/google/' }
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+        maven { url 'https://maven.aliyun.com/repository/spring/' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin/' }
+        maven { url 'https://maven.aliyun.com/repository/spring-plugin/' }
+
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.6.2")
+    }
 }
 
+plugins {
+	id 'org.springframework.boot' version '2.6.2'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'eclipse'
+}
+
+version '1.0-SNAPSHOT'
+sourceCompatibility = '1.8'
 group = 'example'
-version = '0.0.1-SNAPSHOT'
+
 
 repositories {
-	mavenCentral()
-	gradlePluginPortal()
+    mavenLocal()
+    maven { url 'https://maven.aliyun.com/repository/google/' }
+    maven { url 'https://maven.aliyun.com/repository/public/' }
+    maven { url 'https://maven.aliyun.com/repository/spring/' }
+    maven { url 'https://maven.aliyun.com/repository/gradle-plugin/' }
+    maven { url 'https://maven.aliyun.com/repository/spring-plugin/' }
+
+    mavenCentral()
 }
 
+//ependencies {
+ //   testCompile group: 'junit', name: 'junit', version: '4.12'
+//}
 
+configurations {
+  compileOnly {
+    extendsFrom annotationProcessor
+  }
+}
 // run 명령으로 실행시킬 java Class 이름
 //application {
 //    mainClass = 'demo.example.DemoApplication'
 //}
-sourceCompatibility = '1.8'
+
+
 
 dependencies {
-	//implementation 'org.springframework.boot:spring-boot-starter-security'
-	//implementation "io.projectreactor:reactor-core:3.4.0"
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+//	implementation "io.projectreactor:reactor-core:5.3.14"
 	
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.2'
     implementation 'org.mariadb.jdbc:mariadb-java-client:2.1.2'
-	
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	 
-	 implementation 'org.springframework.boot:spring-boot-starter-undertow'
-	 implementation ('org.springframework.boot:spring-boot-starter-web') {
-      exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
-    }
-    
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	 implementation 'org.springframework.boot:spring-boot-starter-web'
+	 
+     implementation 'javax.servlet:jstl'
+    implementation "org.apache.tomcat.embed:tomcat-embed-jasper"
 	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     
-   compileOnly 'org.projectlombok:lombok:1.18.22'
-    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+   compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
 	
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	//testImplementation 'org.springframework.security:spring-security-test'
@@ -49,28 +78,15 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
-// java 플러그인 설정으로 java 의 플러그가 있어야 정상적으로 작동
-tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8' 
-    // 소스 파일을 작성할 때 사용할 자바 버전
-    sourceCompatibility = '1.8'
-    // 자바 클래스를 실행시킬 JVM의 최소 버전
-    targetCompatibility = '1.8'
-}
 
-configurations { // Spring Configurations 프로세스를 다룰 때 필요한 설정 정보 java에 포함됨
-  compileOnly {
-    extendsFrom annotationProcessor
-  }
-}
 // java 플러그인 설정으로 java 의 플러그가 있어야 정상적으로 작동
-tasks.withType(JavaCompile) {
-    // 프로젝트의 소스 파일 인코딩을 gradle에게 알려준다.
-    options.encoding = 'UTF-8' 
-   
+//tasks.withType(JavaCompile) {
+//    options.encoding = 'UTF-8' 
+    // 소스 파일을 작성할 때 사용할 자바 버전
+ //   sourceCompatibility = '1.8'
     // 자바 클래스를 실행시킬 JVM의 최소 버전
-    targetCompatibility = '1.8'
-}
+ //   targetCompatibility = '1.8'
+//}
 
 //bootRun {
 //    String activeProfile = System.properties['spring.profiles.active']
