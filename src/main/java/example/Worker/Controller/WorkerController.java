@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import example.Worker.Service.WorkerService;
 
 @CrossOrigin("*")
-@RequestMapping(value = "/success")
+@RequestMapping("/success")
 @RestController
 public class WorkerController {
 	
