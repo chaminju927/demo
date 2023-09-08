@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+	<input type="number" id="no" placeholder="사번 입력"  >
+    <button id="btn">조회</button>
+    <div id="dataBox">
+		<!-- 이름 사번 이메일 폰 정보 -->
+		 <!--<table>
+	        <thead>
+	          <tr>
+	            <th>이름</th>
+	            <th>사번</th>
+	            <th>이메일</th>
+	            <th>휴대폰</th>
+	          </tr>
+	        </thead>
+	        <tbody>
+	            <tr>
+	              <td><span id="name"></span></td>
+	              <td></td>
+	              <td></td>
+	              <td></td>
+	            </tr>
+	          </tbody> 
+	        </table> -->
+	</div>
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+		
+		
+    $('#btn').click(function() {
+		var no = $('#no').val();
+		console.log(no);
+		
+		fetch(`http://localhost:8080/success/${no}`, {
+		  method: "GET",
+		})
+		.then((response) => response.json())
+		.then((data) => {
+		  //  if (data.status == "success") {
+		  	console.log(data);
+		  })
+		.catch((error) => {
+			console.log(error);
+		});
+	});
+	
+	</script>
+</body>
+</html>

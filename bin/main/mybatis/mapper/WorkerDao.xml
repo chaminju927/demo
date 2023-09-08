@@ -3,16 +3,16 @@
 
 <mapper namespace="demo.mybatis.mapper.WorkerDao">
 <resultMap type="Worker" id="workerMap">
-  <id column="name" property="name"/>
-  <id column="no" property="no"/>
-  <id column="email" property="email"/>
-  <id column="phone" property="phone"/>
+  <result column="name" property="name"/>
+  <result column="no" property="no"/>
+  <result column="email" property="email"/>
+  <result column="phone" property="phone"/>
 </resultMap>
  
-<select id="getWorker" parameterType="Integer" resultMap="workerMap" >
+<select id="getWorker" parameterType="int" resultType="com.example.Worker.Vo.Worker">
 	select *
 	from worker
-	where no=#{no}
+	where no=#{no};
 </select>
 
 </mapper>
