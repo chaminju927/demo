@@ -21,15 +21,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         .authenticated())
 
                 .formLogin(login -> login
-                                .loginPage("/login")   // ·Î±×ÀÎ½Ã Ä¿½ºÅÒ ÆäÀÌÁö
-                                .loginProcessingUrl("/doLogin")  // form action ÅÂ±×
-                                .usernameParameter("id")  //ÆÄ¶ó¹ÌÅÍ key°ª Ä¿½ºÅÍ¸¶ÀÌÂ¡
+                                .loginPage("/login")  
+                                .loginProcessingUrl("/doLogin")  // form action tag
+                                .usernameParameter("id")  // form id customizing
                                 .passwordParameter("pw")
                         //.defaultSuccessUrl("/index.html", true)
                         //.failureUrl("/login.html?error=true")
 //			    .successHandler(
 //			            new AuthenticationSuccessHandler() {
-//			            	
+//			            
 //			                @Override
 //			                public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {			                    
 //			                	System.out.println("authentication : " + authentication.getName());
