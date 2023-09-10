@@ -2,27 +2,35 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
-  
+ 
 <configuration>
 <properties resource="appliation.properties" />
   <typeAliases>
-    <typeAlias type="demo.example.Worker.Vo.Worker" alias="workerMap" />    
+
+   <typeAlias alias="Worker" type="com.example.Worker.Vo.Worker"/>
+
   </typeAliases>
   
    <environments default="development">
          <environment id="development">
             <transactionManager type="JDBC"/>
-            <dataSource type="UNPOOLED">
+            <dataSource type="POOLED">
+                <property name="driver" value="org.mariadb.jdbc.Driver"/>
+			    <property name="url" value="jdbc:mariadb://localhost:3306/pr1?characterEncoding=UTF-8"/>
+			    <property name="username" value="root"/>
+			    <property name="password" value="1111"/>
+            </dataSource>
+            <!--<dataSource type="POOLED">
                 <property name="name" value="${name}"/>
                 <property name="no" value="${no}"/>
                 <property name="email" value="${email}"/>
                 <property name="phone" value="${phone}"/>
-            </dataSource>
+            </dataSource>-->
         </environment>
     </environments>
  
     <mappers>
-        <mapper resource="mybatis/mapper/WorkerDao.xml"/>
+        <mapper resource="mapper/WorkerDao.xml"/>
     </mappers>
 
 </configuration>

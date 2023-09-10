@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.Worker.Dao.WorkerDao">
+
+  <resultMap type="com.example.Worker.Vo.Worker" id="workerMap">
+    <!-- 컬럼명과 프로퍼티명을 정확하게 일치시켜야 합니다. -->
+    <id column="no" property="no"/>
+    <result column="name" property="name"/>
+    <result column="email" property="email"/>
+    <result column="phone" property="phone"/>
+  </resultMap>
+ 
+  <select id="getWorker" parameterType="int" resultType="String">
+    select name
+    from worker
+    where no=#{no};
+  </select>
+  <!--<select id="getWorker" parameterType="int" resultType="com.example.Worker.Vo.Worker">
+    select *
+    from worker
+    where no=#{no};
+  </select>-->
+
+</mapper>
+
+

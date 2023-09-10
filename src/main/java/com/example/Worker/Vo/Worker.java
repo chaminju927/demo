@@ -10,8 +10,8 @@ import lombok.ToString;
 @ToString
 @Data
 public class Worker {
-		private String name;
 		private Integer no;
+		private String name;
 		private String email;
 		private String phone;
 	}

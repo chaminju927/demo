@@ -39,10 +39,18 @@
 		var no = $('#no').val();
 		console.log(no);
 		
-		fetch(`http://localhost:8080/success/${no}`, {
+		fetch(`http://localhost:8080/worker/${no}`, {
 		  method: "GET",
 		})
-		.then((response) => response.json())
+		//.then((response) => response.json())
+		  .then((response) => {
+		        if (!response.ok) {
+		            throw new Error('Network response was not ok');
+		        }
+		        return response.text(); // 문자열로 응답 받기
+		    })
+    
+		
 		.then((data) => {
 		  //  if (data.status == "success") {
 		  	console.log(data);

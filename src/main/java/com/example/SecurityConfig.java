@@ -15,18 +15,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf(csrf -> csrf.disable())   //토큰 검사 비활성화 로직
                 .authorizeHttpRequests(requests -> requests
-                        .antMatchers("/login")
+                        .antMatchers("/login")  // /login으로 접근하는 모든 접근 허용
                         .permitAll()
                         .anyRequest()
-                        .authenticated())
+                        .authenticated())  //인증된 사용자만 접근할수 있도록 하는 메서드
 
                 .formLogin(login -> login
                                 .loginPage("/login")  
-                                .loginProcessingUrl("/doLogin")  // form action tag
-                                .usernameParameter("id")  // form id customizing
+                                .loginProcessingUrl("/doLogin")  // form 액션태그
+                                .usernameParameter("id")  // form id 커스터마이징
                                 .passwordParameter("pw")
-                        //.defaultSuccessUrl("/index.html", true)
-                        //.failureUrl("/login.html?error=true")
+                                .defaultSuccessUrl("/index.html", true)
+                               .failureUrl("/login?error=true")
 //			    .successHandler(
 //			            new AuthenticationSuccessHandler() {
 //			            
@@ -41,11 +41,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //	            )
                         );
 		}
-	//form login 커스텀 화면 깨짐 방지
-	 @Override
-	    public void configure(WebSecurity web) throws Exception {
-	        web.ignoring().antMatchers("/static/js/**","/static/css/**","/static/img/**","/static/frontend/**");
-	    }
 
 }
 		
@@ -60,25 +55,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                }
 //        )
 
-	
-
-	
-//	//request 처리
-//	static final String USER = "USER";
-//	@Bean
-//	SecurityWebFilterChain filterChain(ServerHttpSecurity http) {
-//		http
-//			.authorizeExchange((authorize) -> authorize
-//				.pathMatchers(HttpMethod.GET,"/index").hasRole(USER)
-//				.access((authentication, context) ->
-//					hasRole("USER").check(authentication, context)
-//					.filter(decision -> !decision.isGranted())
-//					.switchIfEmpty(hasRole("DBA").check(authentication, context))
-//			)
-//			.anyExchange().denyAll()                                         
-//		);
-//		return http.build();
-//
 	
 
 

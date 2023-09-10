@@ -58,6 +58,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	 
 	 implementation 'org.springframework.boot:spring-boot-starter-web'
+	 implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	 
 	 
      implementation 'javax.servlet:jstl'
     implementation "org.apache.tomcat.embed:tomcat-embed-jasper"
@@ -84,7 +86,7 @@ tasks.named('test') {
  //   targetCompatibility = '1.8'
 //}
 
-//bootRun {
-//    String activeProfile = System.properties['spring.profiles.active']
-//    systemProperty "spring.profiles.active", activeProfile
-//}
+bootRun {
+    String activeProfile = System.properties['spring.profiles.active']
+    systemProperty "spring.profiles.active", activeProfile
+}

@@ -1,5 +1,4 @@
 package com.example.Worker.Controller;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,14 +10,21 @@ import com.example.Worker.Service.WorkerService;
 import com.example.Worker.Vo.Worker;
 
 @CrossOrigin("*")
-@RequestMapping(value = "/success")
+@RequestMapping(value = "/worker")
 @RestController
 public class WorkerController {
 	
 	@Autowired private WorkerService workerService;	
 	
+//	@GetMapping("/{no}")
+//	public Worker list(@PathVariable("no") int no) {
+//		System.out.println(no);
+//		return workerService.get(no);
+//		//return null;
+//	}
+//	
 	@GetMapping("/{no}")
-	public Worker list(@PathVariable("no") int no) {
+	public String list(@PathVariable("no") int no) {
 		System.out.println(no);
 		return workerService.get(no);
 		//return null;

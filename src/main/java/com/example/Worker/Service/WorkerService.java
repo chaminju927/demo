@@ -4,5 +4,6 @@ import com.example.Worker.Vo.Worker;
 
 public interface WorkerService {
 
-	Worker get(int no);
+	//Worker get(int no);
+	String get(int no);
 }
