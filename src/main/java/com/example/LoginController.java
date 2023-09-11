@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class LoginController {
 	
+	  @GetMapping("/api/hello")
+	    public String test() {
+	        return "Hello, world!";
+	    }
+	
 	@GetMapping("/")
     public String getIndex() {
         return "/index";

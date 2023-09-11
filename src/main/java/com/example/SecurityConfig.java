@@ -15,7 +15,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf(csrf -> csrf.disable())   //토큰 검사 비활성화 로직
                 .authorizeHttpRequests(requests -> requests
-                        .antMatchers("/login")  // /login으로 접근하는 모든 접근 허용
+                        .antMatchers("/login","/api/hello")  // ""로 접근하는 모든 접근 허용
                         .permitAll()
                         .anyRequest()
                         .authenticated())  //인증된 사용자만 접근할수 있도록 하는 메서드
@@ -26,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                                 .usernameParameter("id")  // form id 커스터마이징
                                 .passwordParameter("pw")
                                 .defaultSuccessUrl("/index.html", true)
-                               .failureUrl("/login?error=true")
+                                .failureUrl("/login?error=true")
 //			    .successHandler(
 //			            new AuthenticationSuccessHandler() {
 //			            
