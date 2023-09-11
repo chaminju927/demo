@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-		#row{
+		.th{
 			display: none;
 		}
 	</style>
@@ -16,52 +16,44 @@
     <div>
 		 <table>
 	        <thead>
-	          <tr id = "row">
+	          <tr>
 	            <th>사번</th>
 	            <th>이름</th>
 	            <th>이메일</th>
 	            <th>휴대폰</th>
 	          </tr>
 	        </thead>
-	        <tbody id="dataTable">
-	            <tr>
-	              <td><span id="no"></span></td>
-	              <td><span id="name"></td>
-	              <td><span id="email"></td>
-	              <td><span id="phone"></td>
+	        <tbody>
+	            <tr id="workerData">
+	              <td><span id="num"></span></td>
+	              <td><span id="name"></span></td>
+	              <td><span id="email"></span></td>
+	              <td><span id="phone"></span></td>
 	            </tr>
 	          </tbody> 
 	        </table> 
 	</div>
-	
+	<script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-    <script src=" https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script>
 		
     $('#btn').click(function() {
 		var no = $('#no').val();
 		var html ='';
 		console.log(no);
-		$('#row').css('display','block');
 		
 		fetch(`http://localhost:8080/worker/${no}`, {
 		  method: "GET",
+		  dataType: "json"
 		})
 		.then((response) => response.json()) 
 		.then((data) => {
-		  //if (data.status == "success") {
 			console.log(data);
-		  	//$('#row').css('display','block');
-		  	//html += `<tr>
-	           // <td>${data.no}</td>
-	           // <td>${data.name}</a></td>
-	           // <td>${data.email}</td>
-	           // <td>${data.phone}</td>
-	           // </tr>\n`;
-          // $('#dataTable').innerHTML = html; 
-		 
+			console.log(data.email);
+         	//$('#num').val(data.no);
+         	
 	  	})
 		.catch((error) => {
 			console.log(error);

@@ -10,14 +10,8 @@
     <result column="email" property="email"/>
     <result column="phone" property="phone"/>
   </resultMap>
- 
- <!--<select id="getWorker" parameterType="int" resultType="String">
-    select name
-    from worker
-    where no=#{no};
-  </select>-->
   
-   <insert id="insert" parameterType="worker">
+   <insert id="insert" parameterType="com.example.Worker.Vo.Worker">
     insert into worker(no, name, email, phone)
     values(#{no}, #{name}, #{email}, #{phone}); 
   </insert>
@@ -28,16 +22,18 @@
     where no=#{no};
   </select>
   
-  <delete id="delete">
-	  delete from worker 
+  <delete id="delete" parameterType="int">
+	  delete 
+	  from worker 
 	  where no = #{no};
   </delete>
   
-  <update id="update">
-	  
-  </update>
-  
-
+  <update id="update" parameterType="com.example.Worker.Vo.Worker">
+	  update worker
+	  set 
+	  no=#{no}, name=#{name}, phone=#{phone}, email=#{email}
+	  where no = #{no};
+  </update>
 </mapper>
 
 

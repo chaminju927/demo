@@ -6,9 +6,7 @@
 <configuration>
 <properties resource="appliation.properties" />
   <typeAliases>
-
    <typeAlias alias="Worker" type="com.example.Worker.Vo.Worker"/>
-
   </typeAliases>
   
    <environments default="development">
@@ -20,12 +18,6 @@
 			    <property name="username" value="root"/>
 			    <property name="password" value="1111"/>
             </dataSource>
-            <!--<dataSource type="POOLED">
-                <property name="name" value="${name}"/>
-                <property name="no" value="${no}"/>
-                <property name="email" value="${email}"/>
-                <property name="phone" value="${phone}"/>
-            </dataSource>-->
         </environment>
     </environments>
  

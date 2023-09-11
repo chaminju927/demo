@@ -21,13 +21,13 @@ import com.example.Worker.Vo.Worker;
 @RestController
 public class WorkerController {
 	
-	private final Logger logger = LoggerFactory.getLogger("LoggerController의 로그");
+	//private final Logger logger = LoggerFactory.getLogger("LoggerController의 로그");
 	@Autowired private WorkerService workerService;	
 	
-	@GetMapping("/log")
-    public void log() {
-        logger.info("로깅 발생!");
-    }
+//	@GetMapping("/log")
+//    public void log() {
+//        logger.info("로깅 발생!");
+//    }
 	
 	@PostMapping("/join")
 	  public String insert(@RequestBody Worker worker) {

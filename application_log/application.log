@@ -94,3 +94,433 @@
 2023-09-11 11:39:16.522 WARN  [http-nio-8080-exec-5] [LogService] - Warn
 2023-09-11 11:39:16.522 ERROR [http-nio-8080-exec-5] [LogService] - Error
 2023-09-11 14:07:57.067 INFO  [RMI TCP Connection(128)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] - Application shutdown requested.
+2023-09-11 15:49:46.748 INFO  [main] [com.example.DemoApplication] - Starting DemoApplication using Java 1.8.0_20 on DESKTOP-42OAV3A with PID 100336 (C:\Users\JNESS\git\demo\bin\main started by 20230901 in C:\Users\JNESS\git\demo)
+2023-09-11 15:49:46.751 INFO  [main] [com.example.DemoApplication] - No active profile set, falling back to default profiles: default
+2023-09-11 15:49:48.416 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-09-11 15:49:48.428 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-11 15:49:48.429 INFO  [main] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-09-11 15:49:48.429 INFO  [main] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2023-09-11 15:49:48.607 INFO  [main] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-09-11 15:49:48.612 INFO  [main] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-09-11 15:49:48.613 INFO  [main] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 1779 ms
+2023-09-11 15:49:48.846 WARN  [main] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'workerController': Unsatisfied dependency expressed through field 'workerService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'defaultWorkerService': Unsatisfied dependency expressed through field 'workerDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'workerDao' defined in file [C:\Users\JNESS\git\demo\bin\main\com\example\Worker\Dao\WorkerDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'worker'.  Cause: java.lang.ClassNotFoundException: Cannot find class: worker
+2023-09-11 15:49:48.884 INFO  [main] [org.apache.catalina.core.StandardService] - Stopping service [Tomcat]
+2023-09-11 15:49:48.892 INFO  [main] [o.s.b.a.l.ConditionEvaluationReportLoggingListener] - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-09-11 15:49:48.912 ERROR [main] [o.springframework.boot.SpringApplication] - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'workerController': Unsatisfied dependency expressed through field 'workerService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'defaultWorkerService': Unsatisfied dependency expressed through field 'workerDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'workerDao' defined in file [C:\Users\JNESS\git\demo\bin\main\com\example\Worker\Dao\WorkerDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'worker'.  Cause: java.lang.ClassNotFoundException: Cannot find class: worker
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:659)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:639)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$189/746074699.getObject(Unknown Source)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:953)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290)
+	at com.example.DemoApplication.main(DemoApplication.java:18)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'defaultWorkerService': Unsatisfied dependency expressed through field 'workerDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'workerDao' defined in file [C:\Users\JNESS\git\demo\bin\main\com\example\Worker\Dao\WorkerDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'worker'.  Cause: java.lang.ClassNotFoundException: Cannot find class: worker
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:659)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:639)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$189/746074699.getObject(Unknown Source)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1389)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1309)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:656)
+	... 21 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'workerDao' defined in file [C:\Users\JNESS\git\demo\bin\main\com\example\Worker\Dao\WorkerDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'worker'.  Cause: java.lang.ClassNotFoundException: Cannot find class: worker
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1534)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1417)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$189/746074699.getObject(Unknown Source)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1389)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1309)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:656)
+	... 36 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'worker'.  Cause: java.lang.ClassNotFoundException: Cannot find class: worker
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:658)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:638)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$189/746074699.getObject(Unknown Source)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1389)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1309)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1519)
+	... 48 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'worker'.  Cause: java.lang.ClassNotFoundException: Cannot find class: worker
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	... 62 common frames omitted
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'worker'.  Cause: java.lang.ClassNotFoundException: Cannot find class: worker
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:595)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:475)
+	at org.mybatis.spring.SqlSessionFactoryBean.getObject(SqlSessionFactoryBean.java:615)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.sqlSessionFactory(MybatisAutoConfiguration.java:180)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$49f4ca2f.CGLIB$sqlSessionFactory$1(<generated>)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$49f4ca2f$$FastClassBySpringCGLIB$$61050dd3.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$49f4ca2f.sqlSessionFactory(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 63 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'worker'.  Cause: java.lang.ClassNotFoundException: Cannot find class: worker
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:122)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:94)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:593)
+	... 76 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'worker'.  Cause: java.lang.ClassNotFoundException: Cannot find class: worker
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:118)
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:76)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:137)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:130)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:120)
+	... 78 common frames omitted
+Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'worker'.  Cause: java.lang.ClassNotFoundException: Cannot find class: worker
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:120)
+	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:149)
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:116)
+	... 82 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Cannot find class: worker
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:200)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:89)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:261)
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:116)
+	... 84 common frames omitted
+2023-09-11 15:53:53.769 INFO  [main] [com.example.DemoApplication] - Starting DemoApplication using Java 1.8.0_20 on DESKTOP-42OAV3A with PID 97488 (C:\Users\JNESS\git\demo\bin\main started by 20230901 in C:\Users\JNESS\git\demo)
+2023-09-11 15:53:53.771 INFO  [main] [com.example.DemoApplication] - No active profile set, falling back to default profiles: default
+2023-09-11 15:53:54.674 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-09-11 15:53:54.682 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-11 15:53:54.682 INFO  [main] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-09-11 15:53:54.683 INFO  [main] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2023-09-11 15:53:54.827 INFO  [main] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-09-11 15:53:54.833 INFO  [main] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-09-11 15:53:54.833 INFO  [main] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 1018 ms
+2023-09-11 15:53:55.033 WARN  [main] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'workerController': Unsatisfied dependency expressed through field 'workerService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'defaultWorkerService': Unsatisfied dependency expressed through field 'workerDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'workerDao' defined in file [C:\Users\JNESS\git\demo\bin\main\com\example\Worker\Dao\WorkerDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'worker'.  Cause: java.lang.ClassNotFoundException: Cannot find class: worker
+2023-09-11 15:53:55.035 INFO  [main] [org.apache.catalina.core.StandardService] - Stopping service [Tomcat]
+2023-09-11 15:53:55.044 INFO  [main] [o.s.b.a.l.ConditionEvaluationReportLoggingListener] - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-09-11 15:53:55.063 ERROR [main] [o.springframework.boot.SpringApplication] - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'workerController': Unsatisfied dependency expressed through field 'workerService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'defaultWorkerService': Unsatisfied dependency expressed through field 'workerDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'workerDao' defined in file [C:\Users\JNESS\git\demo\bin\main\com\example\Worker\Dao\WorkerDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'worker'.  Cause: java.lang.ClassNotFoundException: Cannot find class: worker
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:659)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:639)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$189/746074699.getObject(Unknown Source)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:953)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290)
+	at com.example.DemoApplication.main(DemoApplication.java:18)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'defaultWorkerService': Unsatisfied dependency expressed through field 'workerDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'workerDao' defined in file [C:\Users\JNESS\git\demo\bin\main\com\example\Worker\Dao\WorkerDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'worker'.  Cause: java.lang.ClassNotFoundException: Cannot find class: worker
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:659)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:639)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$189/746074699.getObject(Unknown Source)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1389)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1309)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:656)
+	... 21 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'workerDao' defined in file [C:\Users\JNESS\git\demo\bin\main\com\example\Worker\Dao\WorkerDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'worker'.  Cause: java.lang.ClassNotFoundException: Cannot find class: worker
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1534)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1417)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$189/746074699.getObject(Unknown Source)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1389)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1309)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:656)
+	... 36 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'worker'.  Cause: java.lang.ClassNotFoundException: Cannot find class: worker
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:658)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:638)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$189/746074699.getObject(Unknown Source)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1389)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1309)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1519)
+	... 48 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'worker'.  Cause: java.lang.ClassNotFoundException: Cannot find class: worker
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	... 62 common frames omitted
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'worker'.  Cause: java.lang.ClassNotFoundException: Cannot find class: worker
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:595)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:475)
+	at org.mybatis.spring.SqlSessionFactoryBean.getObject(SqlSessionFactoryBean.java:615)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.sqlSessionFactory(MybatisAutoConfiguration.java:180)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$49f4ca2f.CGLIB$sqlSessionFactory$0(<generated>)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$49f4ca2f$$FastClassBySpringCGLIB$$61050dd3.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$49f4ca2f.sqlSessionFactory(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 63 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [C:\Users\JNESS\git\demo\bin\main\mapper\WorkerDao.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'worker'.  Cause: java.lang.ClassNotFoundException: Cannot find class: worker
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:122)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:94)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:593)
+	... 76 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'worker'.  Cause: java.lang.ClassNotFoundException: Cannot find class: worker
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:118)
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:76)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:137)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:130)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:120)
+	... 78 common frames omitted
+Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'worker'.  Cause: java.lang.ClassNotFoundException: Cannot find class: worker
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:120)
+	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:149)
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:116)
+	... 82 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Cannot find class: worker
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:200)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:89)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:261)
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:116)
+	... 84 common frames omitted
+2023-09-11 15:58:22.930 INFO  [main] [com.example.DemoApplication] - Starting DemoApplication using Java 1.8.0_20 on DESKTOP-42OAV3A with PID 113180 (C:\Users\JNESS\git\demo\bin\main started by 20230901 in C:\Users\JNESS\git\demo)
+2023-09-11 15:58:22.932 INFO  [main] [com.example.DemoApplication] - No active profile set, falling back to default profiles: default
+2023-09-11 15:58:23.845 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-09-11 15:58:23.853 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-11 15:58:23.854 INFO  [main] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-09-11 15:58:23.854 INFO  [main] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2023-09-11 15:58:24.010 INFO  [main] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-09-11 15:58:24.015 INFO  [main] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-09-11 15:58:24.015 INFO  [main] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 1043 ms
+2023-09-11 15:58:24.544 INFO  [main] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@320a8ebf, org.springframework.security.web.context.SecurityContextPersistenceFilter@2412a42b, org.springframework.security.web.header.HeaderWriterFilter@3dd4a6fa, org.springframework.security.web.authentication.logout.LogoutFilter@108a46d6, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@c6c82aa, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@29138d3a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@435e60ff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@67b100fe, org.springframework.security.web.session.SessionManagementFilter@3f725306, org.springframework.security.web.access.ExceptionTranslationFilter@49ede9c7, org.springframework.security.web.access.intercept.AuthorizationFilter@4207609e]
+2023-09-11 15:58:24.696 INFO  [main] [o.s.b.a.w.s.WelcomePageHandlerMapping] - Adding welcome page: class path resource [static/index.html]
+2023-09-11 15:58:24.835 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8080"]
+2023-09-11 15:58:24.858 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-11 15:58:24.865 INFO  [main] [com.example.DemoApplication] - Started DemoApplication in 2.227 seconds (JVM running for 2.814)
+2023-09-11 16:01:51.663 INFO  [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-11 16:01:51.663 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-09-11 16:01:51.664 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
+2023-09-11 16:20:16.465 INFO  [RMI TCP Connection(32)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] - Application shutdown requested.
+2023-09-11 16:20:23.993 INFO  [main] [com.example.DemoApplication] - Starting DemoApplication using Java 1.8.0_20 on DESKTOP-42OAV3A with PID 103328 (C:\Users\JNESS\git\demo\bin\main started by 20230901 in C:\Users\JNESS\git\demo)
+2023-09-11 16:20:23.996 INFO  [main] [com.example.DemoApplication] - No active profile set, falling back to default profiles: default
+2023-09-11 16:20:25.521 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-09-11 16:20:25.531 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-11 16:20:25.532 INFO  [main] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-09-11 16:20:25.532 INFO  [main] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2023-09-11 16:20:25.690 INFO  [main] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-09-11 16:20:25.695 INFO  [main] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-09-11 16:20:25.695 INFO  [main] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 1634 ms
+2023-09-11 16:20:26.081 INFO  [main] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@c6c82aa, org.springframework.security.web.context.SecurityContextPersistenceFilter@22a0d4ea, org.springframework.security.web.header.HeaderWriterFilter@73d4066e, org.springframework.security.web.authentication.logout.LogoutFilter@a2ddf26, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2a2ef072, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6ecdbab8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@29138d3a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2e179f3e, org.springframework.security.web.session.SessionManagementFilter@5a2fa51f, org.springframework.security.web.access.ExceptionTranslationFilter@9aa2002, org.springframework.security.web.access.intercept.AuthorizationFilter@108a46d6]
+2023-09-11 16:20:26.216 INFO  [main] [o.s.b.a.w.s.WelcomePageHandlerMapping] - Adding welcome page: class path resource [static/index.html]
+2023-09-11 16:20:26.338 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8080"]
+2023-09-11 16:20:26.362 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-11 16:20:26.373 INFO  [main] [com.example.DemoApplication] - Started DemoApplication in 3.026 seconds (JVM running for 3.895)
+2023-09-11 16:20:31.350 INFO  [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-11 16:20:31.350 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-09-11 16:20:31.351 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
+2023-09-11 16:23:39.639 INFO  [RMI TCP Connection(14)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] - Application shutdown requested.
+2023-09-11 16:43:53.053 INFO  [main] [com.example.DemoApplication] - Starting DemoApplication using Java 1.8.0_20 on DESKTOP-42OAV3A with PID 92284 (C:\Users\JNESS\git\demo\bin\main started by 20230901 in C:\Users\JNESS\git\demo)
+2023-09-11 16:43:53.056 INFO  [main] [com.example.DemoApplication] - No active profile set, falling back to default profiles: default
+2023-09-11 16:43:54.897 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-09-11 16:43:54.920 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-11 16:43:54.921 INFO  [main] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-09-11 16:43:54.921 INFO  [main] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2023-09-11 16:43:55.571 INFO  [main] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-09-11 16:43:55.580 INFO  [main] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-09-11 16:43:55.580 INFO  [main] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 2471 ms
+2023-09-11 16:43:56.105 INFO  [main] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3bddc676, org.springframework.security.web.context.SecurityContextPersistenceFilter@19f7222e, org.springframework.security.web.header.HeaderWriterFilter@22a0d4ea, org.springframework.security.web.authentication.logout.LogoutFilter@4715ae33, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1f77b5cc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3c69362a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7c251f90, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@29a1505c, org.springframework.security.web.session.SessionManagementFilter@6ecdbab8, org.springframework.security.web.access.ExceptionTranslationFilter@5a2fa51f, org.springframework.security.web.access.intercept.AuthorizationFilter@2a2ef072]
+2023-09-11 16:43:56.284 INFO  [main] [o.s.b.a.w.s.WelcomePageHandlerMapping] - Adding welcome page: class path resource [static/index.html]
+2023-09-11 16:43:56.417 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8080"]
+2023-09-11 16:43:56.438 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-11 16:43:56.446 INFO  [main] [com.example.DemoApplication] - Started DemoApplication in 3.792 seconds (JVM running for 5.209)
+2023-09-11 16:44:02.585 INFO  [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-11 16:44:02.586 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-09-11 16:44:02.586 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
+2023-09-11 16:44:16.075 INFO  [http-nio-8080-exec-5] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2023-09-11 16:44:16.210 INFO  [http-nio-8080-exec-5] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2023-09-11 16:46:29.969 INFO  [RMI TCP Connection(11)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] - Application shutdown requested.
+2023-09-11 16:46:30.219 INFO  [RMI TCP Connection(11)-127.0.0.1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2023-09-11 16:46:30.335 INFO  [RMI TCP Connection(11)-127.0.0.1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+2023-09-11 16:46:34.837 INFO  [main] [com.example.DemoApplication] - Starting DemoApplication using Java 1.8.0_20 on DESKTOP-42OAV3A with PID 102240 (C:\Users\JNESS\git\demo\bin\main started by 20230901 in C:\Users\JNESS\git\demo)
+2023-09-11 16:46:34.854 INFO  [main] [com.example.DemoApplication] - No active profile set, falling back to default profiles: default
+2023-09-11 16:46:35.974 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-09-11 16:46:35.982 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-11 16:46:35.983 INFO  [main] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-09-11 16:46:35.983 INFO  [main] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2023-09-11 16:46:36.480 INFO  [main] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-09-11 16:46:36.487 INFO  [main] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-09-11 16:46:36.488 INFO  [main] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 1529 ms
+2023-09-11 16:46:37.343 INFO  [main] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4207609e, org.springframework.security.web.context.SecurityContextPersistenceFilter@73d4066e, org.springframework.security.web.header.HeaderWriterFilter@6cfd9a54, org.springframework.security.web.authentication.logout.LogoutFilter@1e86a5a7, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@108a46d6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5a2fa51f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3f725306, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1f77b5cc, org.springframework.security.web.session.SessionManagementFilter@9aa2002, org.springframework.security.web.access.ExceptionTranslationFilter@28cb3a25, org.springframework.security.web.access.intercept.AuthorizationFilter@23a5818e]
+2023-09-11 16:46:37.661 INFO  [main] [o.s.b.a.w.s.WelcomePageHandlerMapping] - Adding welcome page: class path resource [static/index.html]
+2023-09-11 16:46:38.249 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8080"]
+2023-09-11 16:46:38.281 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-11 16:46:38.294 INFO  [main] [com.example.DemoApplication] - Started DemoApplication in 4.314 seconds (JVM running for 5.639)
+2023-09-11 16:46:41.374 INFO  [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-11 16:46:41.374 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-09-11 16:46:41.376 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 2 ms
+2023-09-11 16:47:03.587 INFO  [http-nio-8080-exec-5] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2023-09-11 16:47:03.637 INFO  [http-nio-8080-exec-5] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2023-09-11 16:47:54.668 INFO  [RMI TCP Connection(11)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] - Application shutdown requested.
+2023-09-11 16:47:54.729 INFO  [RMI TCP Connection(11)-127.0.0.1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2023-09-11 16:47:54.735 INFO  [RMI TCP Connection(11)-127.0.0.1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+2023-09-11 16:48:03.088 INFO  [main] [com.example.DemoApplication] - Starting DemoApplication using Java 1.8.0_20 on DESKTOP-42OAV3A with PID 1908 (C:\Users\JNESS\git\demo\bin\main started by 20230901 in C:\Users\JNESS\git\demo)
+2023-09-11 16:48:03.090 INFO  [main] [com.example.DemoApplication] - No active profile set, falling back to default profiles: default
+2023-09-11 16:48:04.948 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-09-11 16:48:05.006 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-11 16:48:05.007 INFO  [main] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-09-11 16:48:05.008 INFO  [main] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2023-09-11 16:48:05.436 INFO  [main] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-09-11 16:48:05.444 INFO  [main] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-09-11 16:48:05.445 INFO  [main] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 2315 ms
+2023-09-11 16:48:05.927 INFO  [main] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2e179f3e, org.springframework.security.web.context.SecurityContextPersistenceFilter@49ede9c7, org.springframework.security.web.header.HeaderWriterFilter@25d2f66, org.springframework.security.web.authentication.logout.LogoutFilter@65d57e4e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@704641e3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3dd4a6fa, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5cbe2654, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@16e7b402, org.springframework.security.web.session.SessionManagementFilter@71945bc0, org.springframework.security.web.access.ExceptionTranslationFilter@73fb1d7f, org.springframework.security.web.access.intercept.AuthorizationFilter@7a8406c2]
+2023-09-11 16:48:06.079 INFO  [main] [o.s.b.a.w.s.WelcomePageHandlerMapping] - Adding welcome page: class path resource [static/index.html]
+2023-09-11 16:48:06.201 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8080"]
+2023-09-11 16:48:06.224 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-11 16:48:06.231 INFO  [main] [com.example.DemoApplication] - Started DemoApplication in 3.472 seconds (JVM running for 4.684)
+2023-09-11 16:48:08.918 INFO  [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-11 16:48:08.918 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-09-11 16:48:08.919 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
+2023-09-11 16:48:19.343 INFO  [http-nio-8080-exec-5] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2023-09-11 16:48:19.482 INFO  [http-nio-8080-exec-5] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2023-09-11 16:49:01.437 INFO  [RMI TCP Connection(9)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] - Application shutdown requested.
+2023-09-11 16:49:01.503 INFO  [RMI TCP Connection(9)-127.0.0.1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2023-09-11 16:49:01.509 INFO  [RMI TCP Connection(9)-127.0.0.1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+2023-09-11 16:49:07.916 INFO  [main] [com.example.DemoApplication] - Starting DemoApplication using Java 1.8.0_20 on DESKTOP-42OAV3A with PID 106980 (C:\Users\JNESS\git\demo\bin\main started by 20230901 in C:\Users\JNESS\git\demo)
+2023-09-11 16:49:07.920 INFO  [main] [com.example.DemoApplication] - No active profile set, falling back to default profiles: default
+2023-09-11 16:49:09.526 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-09-11 16:49:09.538 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-11 16:49:09.538 INFO  [main] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-09-11 16:49:09.539 INFO  [main] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2023-09-11 16:49:09.709 INFO  [main] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-09-11 16:49:09.714 INFO  [main] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-09-11 16:49:09.715 INFO  [main] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 1749 ms
+2023-09-11 16:49:10.699 INFO  [main] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@17690e14, org.springframework.security.web.context.SecurityContextPersistenceFilter@5555ffcf, org.springframework.security.web.header.HeaderWriterFilter@10fda3d0, org.springframework.security.web.authentication.logout.LogoutFilter@5ba26eb0, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6daf7d37, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@78c1372d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@22a0d4ea, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6850b758, org.springframework.security.web.session.SessionManagementFilter@4f6b687e, org.springframework.security.web.access.ExceptionTranslationFilter@6a0094c9, org.springframework.security.web.access.intercept.AuthorizationFilter@741f8dbe]
+2023-09-11 16:49:10.875 INFO  [main] [o.s.b.a.w.s.WelcomePageHandlerMapping] - Adding welcome page: class path resource [static/index.html]
+2023-09-11 16:49:11.097 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8080"]
+2023-09-11 16:49:11.132 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-11 16:49:11.145 INFO  [main] [com.example.DemoApplication] - Started DemoApplication in 3.634 seconds (JVM running for 4.861)
+2023-09-11 16:49:17.471 INFO  [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-11 16:49:17.471 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-09-11 16:49:17.472 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
+2023-09-11 16:49:34.551 INFO  [http-nio-8080-exec-5] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2023-09-11 16:49:34.678 INFO  [http-nio-8080-exec-5] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2023-09-11 16:54:10.502 INFO  [RMI TCP Connection(13)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] - Application shutdown requested.
+2023-09-11 16:54:10.582 INFO  [RMI TCP Connection(13)-127.0.0.1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2023-09-11 16:54:10.590 INFO  [RMI TCP Connection(13)-127.0.0.1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+2023-09-11 16:54:14.652 INFO  [main] [com.example.DemoApplication] - Starting DemoApplication using Java 1.8.0_20 on DESKTOP-42OAV3A with PID 15024 (C:\Users\JNESS\git\demo\bin\main started by 20230901 in C:\Users\JNESS\git\demo)
+2023-09-11 16:54:14.655 INFO  [main] [com.example.DemoApplication] - No active profile set, falling back to default profiles: default
+2023-09-11 16:54:16.963 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-09-11 16:54:16.974 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-11 16:54:16.975 INFO  [main] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-09-11 16:54:16.976 INFO  [main] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2023-09-11 16:54:17.191 INFO  [main] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-09-11 16:54:17.197 INFO  [main] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-09-11 16:54:17.197 INFO  [main] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 2496 ms
+2023-09-11 16:54:17.657 INFO  [main] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3bddc676, org.springframework.security.web.context.SecurityContextPersistenceFilter@19f7222e, org.springframework.security.web.header.HeaderWriterFilter@22a0d4ea, org.springframework.security.web.authentication.logout.LogoutFilter@4715ae33, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1f77b5cc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3c69362a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7c251f90, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@29a1505c, org.springframework.security.web.session.SessionManagementFilter@6ecdbab8, org.springframework.security.web.access.ExceptionTranslationFilter@5a2fa51f, org.springframework.security.web.access.intercept.AuthorizationFilter@2a2ef072]
+2023-09-11 16:54:17.802 INFO  [main] [o.s.b.a.w.s.WelcomePageHandlerMapping] - Adding welcome page: class path resource [static/index.html]
+2023-09-11 16:54:17.929 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8080"]
+2023-09-11 16:54:17.962 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-11 16:54:17.990 INFO  [main] [com.example.DemoApplication] - Started DemoApplication in 3.666 seconds (JVM running for 4.44)
+2023-09-11 16:54:39.569 INFO  [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-11 16:54:39.569 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-09-11 16:54:39.571 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 2 ms
+2023-09-11 16:54:55.161 INFO  [http-nio-8080-exec-5] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2023-09-11 16:54:55.312 INFO  [http-nio-8080-exec-5] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2023-09-11 16:57:59.034 INFO  [RMI TCP Connection(11)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] - Application shutdown requested.
+2023-09-11 16:57:59.309 INFO  [RMI TCP Connection(11)-127.0.0.1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2023-09-11 16:57:59.315 INFO  [RMI TCP Connection(11)-127.0.0.1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+2023-09-11 16:58:07.116 INFO  [main] [com.example.DemoApplication] - Starting DemoApplication using Java 1.8.0_20 on DESKTOP-42OAV3A with PID 49872 (C:\Users\JNESS\git\demo\bin\main started by 20230901 in C:\Users\JNESS\git\demo)
+2023-09-11 16:58:07.118 INFO  [main] [com.example.DemoApplication] - No active profile set, falling back to default profiles: default
+2023-09-11 16:58:08.391 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-09-11 16:58:08.402 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-11 16:58:08.403 INFO  [main] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-09-11 16:58:08.403 INFO  [main] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2023-09-11 16:58:08.989 INFO  [main] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-09-11 16:58:08.995 INFO  [main] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-09-11 16:58:08.995 INFO  [main] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 1821 ms
+2023-09-11 16:58:09.484 INFO  [main] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1f77b5cc, org.springframework.security.web.context.SecurityContextPersistenceFilter@25d2f66, org.springframework.security.web.header.HeaderWriterFilter@78c1372d, org.springframework.security.web.authentication.logout.LogoutFilter@10afe71a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7a8406c2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@71945bc0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3c69362a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5d7ca698, org.springframework.security.web.session.SessionManagementFilter@73fb1d7f, org.springframework.security.web.access.ExceptionTranslationFilter@5555ffcf, org.springframework.security.web.access.intercept.AuthorizationFilter@4715ae33]
+2023-09-11 16:58:09.644 INFO  [main] [o.s.b.a.w.s.WelcomePageHandlerMapping] - Adding welcome page: class path resource [static/index.html]
+2023-09-11 16:58:09.803 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8080"]
+2023-09-11 16:58:09.825 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-11 16:58:09.833 INFO  [main] [com.example.DemoApplication] - Started DemoApplication in 3.872 seconds (JVM running for 5.226)
+2023-09-11 16:58:14.530 INFO  [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-11 16:58:14.531 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-09-11 16:58:14.532 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
+2023-09-11 16:58:32.017 INFO  [http-nio-8080-exec-5] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2023-09-11 16:58:32.073 INFO  [http-nio-8080-exec-5] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2023-09-11 18:33:03.599 INFO  [RMI TCP Connection(104)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] - Application shutdown requested.
+2023-09-11 18:33:03.648 INFO  [RMI TCP Connection(104)-127.0.0.1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2023-09-11 18:33:03.653 INFO  [RMI TCP Connection(104)-127.0.0.1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
