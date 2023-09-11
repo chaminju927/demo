@@ -4,57 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+		#row{
+			display: none;
+		}
+	</style>
 </head>
 <body>
 	<input type="number" id="no" placeholder="사번 입력"  >
     <button id="btn">조회</button>
-    <div id="dataBox">
-		<!-- 이름 사번 이메일 폰 정보 -->
-		 <!--<table>
+    <div>
+		 <table>
 	        <thead>
-	          <tr>
-	            <th>이름</th>
+	          <tr id = "row">
 	            <th>사번</th>
+	            <th>이름</th>
 	            <th>이메일</th>
 	            <th>휴대폰</th>
 	          </tr>
 	        </thead>
-	        <tbody>
+	        <tbody id="dataTable">
 	            <tr>
-	              <td><span id="name"></span></td>
-	              <td></td>
-	              <td></td>
-	              <td></td>
+	              <td><span id="no"></span></td>
+	              <td><span id="name"></td>
+	              <td><span id="email"></td>
+	              <td><span id="phone"></td>
 	            </tr>
 	          </tbody> 
-	        </table> -->
+	        </table> 
 	</div>
-    
-    
+	
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src=" https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script>
-		
 		
     $('#btn').click(function() {
 		var no = $('#no').val();
+		var html ='';
 		console.log(no);
+		$('#row').css('display','block');
 		
 		fetch(`http://localhost:8080/worker/${no}`, {
 		  method: "GET",
 		})
-		//.then((response) => response.json())
-		  .then((response) => {
-		        if (!response.ok) {
-		            throw new Error('Network response was not ok');
-		        }
-		        return response.text(); // 문자열로 응답 받기
-		    })
-    
-		
+		.then((response) => response.json()) 
 		.then((data) => {
-		  //  if (data.status == "success") {
-		  	console.log(data);
-		  })
+		  //if (data.status == "success") {
+			console.log(data);
+		  	//$('#row').css('display','block');
+		  	//html += `<tr>
+	           // <td>${data.no}</td>
+	           // <td>${data.name}</a></td>
+	           // <td>${data.email}</td>
+	           // <td>${data.phone}</td>
+	           // </tr>\n`;
+          // $('#dataTable').innerHTML = html; 
+		 
+	  	})
 		.catch((error) => {
 			console.log(error);
 		});

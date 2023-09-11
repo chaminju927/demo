@@ -7,8 +7,10 @@ import com.example.Worker.Vo.Worker;
 	@Mapper //mybatis 버전3부터 사용가능
 	public interface WorkerDao {
 
-//	 Worker getWorker(int no);
-		 String getWorker(int no);
-	
+	 Worker getWorker(int no);
+		 ///String getWorker(int no);
+	 void insert(Worker worker);
+	 void delete(int no);
+	 void update(Worker worker);
 	}
 

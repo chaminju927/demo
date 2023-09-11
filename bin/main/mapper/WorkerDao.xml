@@ -11,16 +11,30 @@
     <result column="phone" property="phone"/>
   </resultMap>
  
-  <select id="getWorker" parameterType="int" resultType="String">
+ <!--<select id="getWorker" parameterType="int" resultType="String">
     select name
     from worker
     where no=#{no};
-  </select>
-  <!--<select id="getWorker" parameterType="int" resultType="com.example.Worker.Vo.Worker">
+  </select>-->
+  
+   <insert id="insert" parameterType="worker">
+    insert into worker(no, name, email, phone)
+    values(#{no}, #{name}, #{email}, #{phone}); 
+  </insert>
+  
+  <select id="getWorker" parameterType="int" resultType="com.example.Worker.Vo.Worker">
     select *
     from worker
     where no=#{no};
-  </select>-->
+  </select>
+  
+
+
+  <delete id="delete">
+	  delete from worker 
+	  where no = #{no};
+  </delete>
+  
 
 </mapper>
 
