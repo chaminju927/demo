@@ -1,7 +1,5 @@
 package com.example.Worker.Controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -29,10 +27,12 @@ public class WorkerController {
 //        logger.info("로깅 발생!");
 //    }
 	
-	@PostMapping("/join")
+	@PostMapping
 	  public String insert(@RequestBody Worker worker) {
 		workerService.add(worker);  
-	    return "redirect:/";
+		System.out.println("success");
+	    //return "redirect:/";
+		return null;
 	 }
 
 	@GetMapping("/{no}")
@@ -40,7 +40,7 @@ public class WorkerController {
 		System.out.println(no);
 		return workerService.get(no);
 	}
-	@PutMapping("/update")
+	@PutMapping("/{no}")
 	public Worker update(@RequestBody Worker worker) {
 		System.out.println(worker);
 		workerService.update(worker);
@@ -51,16 +51,9 @@ public class WorkerController {
 	  public String delete(@PathVariable int no) {
 	    System.out.println("삭제번호 : " + no);
 	    workerService.delete(no);
-	    return "redirect:/";
+	    //return "redirect:/";
+	    return null;
 	  }
- 
-//	@GetMapping("/{no}")
-//	public String list(@PathVariable("no") int no) {
-//		System.out.println(no);
-//		return workerService.get(no);
-//		//return null;
-//	}
-	
 }
 
 
