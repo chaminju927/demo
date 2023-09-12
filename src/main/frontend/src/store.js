@@ -46,7 +46,7 @@ export default function reducer(state = initialState, action) {
             };
         case CHANGE:
             return {
-                ...state,
+                ...state,  // state 내부의 값을 복사해 옴
                 worker: state.worker.concat(action.item)
             };
         case DELETE: 
