@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import ApiService from '../../ApiService';
 
-function EditWorkerComponent(props) {
+function AddWorkerComponent(props) {
     const [state, setState] = useState({
         no: '',
         name: '',
@@ -10,34 +10,16 @@ function EditWorkerComponent(props) {
         message: null
     });
 
-    useEffect(() => {
-        console.log('component mounted!');
-        loadWorker();
-    }, []);
-
-    // loadWorker 함수를 선언
-    const loadWorker = () => {
-        ApiService.fetchWorkerByNo(window.localStorage.getItem("no"))
-            .then(res => {
-                let worker = res.data;
-                setState({
-                    no: worker.no,
-                    name: worker.name,
-                    email: worker.email,
-                    phone: worker.phone
-                })
-            })
+    function onChange(e) {
+        const fieldName = e.target.name;
+        const fieldValue = e.target.value;
+        setState(prevState => ({
+            ...prevState,
+            [fieldName]: fieldValue
+        }));
     }
 
-    // onChange 핸들러 수정
-    const onChange = (e) => {
-        setState({
-            ...state,
-            [e.target.name]: e.target.value
-        });
-    }
-
-    const saveWorker = (e) => {
+    function saveWorker(e) {
         e.preventDefault();
         let worker = {
             no: state.no,
@@ -45,26 +27,24 @@ function EditWorkerComponent(props) {
             email: state.email,
             phone: state.phone
         }
-
-        ApiService.editWorker(worker)
+        ApiService.addWorker(worker)
             .then(res => {
-                setState({ ...state, message: worker.name + ' 변경 완료' });
+                setState({ ...state, message: worker.name + ' 등록 완료' });
                 console.log(state.message);
-                console.log(res.data);
-                props.history.push('/worker');
+                props.history.push('/workers');
             })
             .catch(err => {
-                console.log('editWorker() 에러', err);
+                console.log('saveWorker() 에러', err);
             })
     }
 
     return (
         <div>
-            <h2>Edit Worker</h2>
+            <h2>Add Worker</h2>
             <form>
                 <div>
                     <label>No:</label>
-                    <input type="number" name="no" value={state.no} readOnly={true} />
+                    <input type="number" name="no" value={state.no} onChange={onChange} />
                 </div>
                 <div>
                     <label>Name:</label>
@@ -81,7 +61,7 @@ function EditWorkerComponent(props) {
                 <button onClick={saveWorker}>save</button>
             </form>
         </div>
-    );
+    )
 }
 
-export default EditWorkerComponent;
+export default AddWorkerComponent;

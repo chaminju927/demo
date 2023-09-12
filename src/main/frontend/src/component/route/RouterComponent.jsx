@@ -1,28 +1,28 @@
-import React from 'react';
-import { BrowserRouter, Route, Switch} from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import EditWorkerComponent from '../worker/EditWorkerComponent';
-import AddWorkerComponent from '../worker/AddWorekerComponent';
+import AddWorkerComponent from '../worker/AddWorkerComponent'; // 오타 수정
 import WorkerListComponent from '../worker/WorkerListComponent';
 
 const AppRouter = () => {
     return (
         <div>
             <BrowserRouter>
-            <div style={style}>
-                 <Switch>   { /*불필요한 렌더링 없이 단 하나의 컴포넌트만 렌더링하여 사용할때 */}
-                    {/* <Route exact path="/" Component={WorkerListComponent} />  exact path: 의도치 않은 렌더링 방지, 경로가 완벽히 일치하는 컴포넌트 렌더링 */}
-                    <Route path="/worker" Component={WorkerListComponent}  />
-                    <Route path="/add-worker" Component={AddWorkerComponent}  />
-                    <Route path="/edit-worker" Component={EditWorkerComponent}  />
-                </Switch>
-            </div>
+                <div style={style}>
+                    <Routes>
+                       <Route exact path="/" element={<WorkerListComponent />} />
+                        <Route path="/worker" element={<WorkerListComponent />} />
+                        <Route path="/add-worker" element={<AddWorkerComponent />} />
+                        <Route path="/edit-worker" element={<EditWorkerComponent />} />
+                    </Routes>
+                </div>
             </BrowserRouter>
         </div>
-    )
-}
-const style= {
+    );
+};
+
+const style = {
     color: 'red',
-    margin: '10px'
-}
+    margin: '10px',
+};
 
 export default AppRouter;
