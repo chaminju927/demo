@@ -20,10 +20,10 @@ public class LoginController {
 		  return "loginPage";
 	  }
 	
-	@GetMapping("/")
-    public String getIndex() {
-        return "index";
-    }
+//	@GetMapping("/")
+//    public String getIndex() {
+//        return "index";
+//    }
 	
 //	@GetMapping("/main")
 //    public String getMain() {
