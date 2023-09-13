@@ -1801,3 +1801,44 @@ org.thymeleaf.exceptions.TemplateInputException: Error resolving template [Hello
 2023-09-12 14:42:04.897 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
 2023-09-12 14:42:04.899 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 2 ms
 2023-09-12 17:21:44.135 INFO  [RMI TCP Connection(171)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] - Application shutdown requested.
+<<<<<<< HEAD
+=======
+2023-09-12 21:07:27.943 INFO  [main] [com.example.DemoApplication] - Starting DemoApplication using Java 1.8.0_332 on miindue with PID 13020 (C:\Users\minjo\git\demo\bin\main started by minjo in C:\Users\minjo\git\demo)
+2023-09-12 21:07:27.945 INFO  [main] [com.example.DemoApplication] - No active profile set, falling back to default profiles: default
+2023-09-12 21:07:29.712 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-09-12 21:07:29.722 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-12 21:07:29.722 INFO  [main] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-09-12 21:07:29.723 INFO  [main] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2023-09-12 21:07:29.925 INFO  [main] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-09-12 21:07:29.934 INFO  [main] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-09-12 21:07:29.934 INFO  [main] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 1930 ms
+2023-09-12 21:07:30.611 INFO  [main] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2af46afd, org.springframework.security.web.context.SecurityContextPersistenceFilter@5c8e67b9, org.springframework.security.web.header.HeaderWriterFilter@aa4d8cc, org.springframework.security.web.authentication.logout.LogoutFilter@7569ea63, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@20de05e5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@49206065, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@407873d3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@760245e1, org.springframework.security.web.session.SessionManagementFilter@1fde0371, org.springframework.security.web.access.ExceptionTranslationFilter@474c9131, org.springframework.security.web.access.intercept.AuthorizationFilter@3a175162]
+2023-09-12 21:07:30.836 INFO  [main] [o.s.b.a.w.s.WelcomePageHandlerMapping] - Adding welcome page: class path resource [static/index.html]
+2023-09-12 21:07:31.055 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8080"]
+2023-09-12 21:07:31.100 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-12 21:07:31.114 INFO  [main] [com.example.DemoApplication] - Started DemoApplication in 3.526 seconds (JVM running for 4.106)
+2023-09-12 21:07:37.800 INFO  [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-12 21:07:37.800 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-09-12 21:07:37.801 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
+2023-09-12 21:09:28.834 WARN  [http-nio-8080-exec-9] [o.s.w.s.m.s.DefaultHandlerExceptionResolver] - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2023-09-12 21:16:39.177 INFO  [main] [com.example.DemoApplication] - Starting DemoApplication using Java 1.8.0_332 on miindue with PID 18512 (C:\Users\minjo\git\demo\bin\main started by minjo in C:\Users\minjo\git\demo)
+2023-09-12 21:16:39.179 INFO  [main] [com.example.DemoApplication] - No active profile set, falling back to default profiles: default
+2023-09-12 21:16:40.259 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-09-12 21:16:40.265 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-12 21:16:40.266 INFO  [main] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-09-12 21:16:40.266 INFO  [main] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2023-09-12 21:16:40.389 INFO  [main] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-09-12 21:16:40.392 INFO  [main] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-09-12 21:16:40.393 INFO  [main] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 1177 ms
+2023-09-12 21:16:40.796 INFO  [main] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2b289ac9, org.springframework.security.web.context.SecurityContextPersistenceFilter@2e51d054, org.springframework.security.web.header.HeaderWriterFilter@49206065, org.springframework.security.web.authentication.logout.LogoutFilter@2af4129d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@28737371, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@615e3f51, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@381d7219, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4eb1c69, org.springframework.security.web.session.SessionManagementFilter@1317b708, org.springframework.security.web.access.ExceptionTranslationFilter@5c8e67b9, org.springframework.security.web.access.intercept.AuthorizationFilter@5e1fc2aa]
+2023-09-12 21:16:40.965 INFO  [main] [o.s.b.a.w.s.WelcomePageHandlerMapping] - Adding welcome page: class path resource [static/index.html]
+2023-09-12 21:16:41.097 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8080"]
+2023-09-12 21:16:41.120 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-12 21:16:41.127 INFO  [main] [com.example.DemoApplication] - Started DemoApplication in 2.194 seconds (JVM running for 2.516)
+2023-09-12 21:16:50.597 INFO  [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-12 21:16:50.597 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-09-12 21:16:50.597 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
+2023-09-12 21:17:29.292 WARN  [http-nio-8080-exec-9] [o.s.w.s.m.s.DefaultHandlerExceptionResolver] - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2023-09-12 21:25:17.712 WARN  [http-nio-8080-exec-3] [o.s.w.s.m.s.DefaultHandlerExceptionResolver] - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2023-09-12 21:25:17.721 WARN  [http-nio-8080-exec-4] [o.s.w.s.m.s.DefaultHandlerExceptionResolver] - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+>>>>>>> 8faa17d038c436ad2dfd9d92a6679511625256be

@@ -1,11 +1,15 @@
+<<<<<<< HEAD
 arguments=--init-script C\:\\Users\\JNESS\\AppData\\Roaming\\Code\\User\\globalStorage\\redhat.java\\1.22.0\\config_win\\org.eclipse.osgi\\57\\0\\.cp\\gradle\\init\\init.gradle --init-script C\:\\Users\\JNESS\\AppData\\Roaming\\Code\\User\\globalStorage\\redhat.java\\1.22.0\\config_win\\org.eclipse.osgi\\57\\0\\.cp\\gradle\\protobuf\\init.gradle
+=======
+arguments=--init-script C\:\\Users\\minjo\\AppData\\Roaming\\Code\\User\\globalStorage\\redhat.java\\1.21.0\\config_win\\org.eclipse.osgi\\53\\0\\.cp\\gradle\\init\\init.gradle --init-script C\:\\Users\\minjo\\AppData\\Roaming\\Code\\User\\globalStorage\\redhat.java\\1.21.0\\config_win\\org.eclipse.osgi\\53\\0\\.cp\\gradle\\protobuf\\init.gradle
+>>>>>>> 8faa17d038c436ad2dfd9d92a6679511625256be
 auto.sync=false
 build.scans.enabled=false
-connection.gradle.distribution=GRADLE_DISTRIBUTION(LOCAL_INSTALLATION(C\:\\Program Files\\gradle-7.0.2))
+connection.gradle.distribution=GRADLE_DISTRIBUTION(VERSION(7.4.2))
 connection.project.dir=
 eclipse.preferences.version=1
 gradle.user.home=
-java.home=C\:/Program Files/Java/1.8.0_20
+java.home=C\:/Program Files/java-1.8.0-openjdk-1.8.0.332-1.b09.ojdkbuild.windows.x86_64
 jvm.arguments=
 offline.mode=false
 override.workspace.settings=true

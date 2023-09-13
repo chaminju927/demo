@@ -2,8 +2,6 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 // import EditWorkerComponent from '../worker/EditWorkerComponent';
 // import AddWorkerComponent from '../worker/AddWorkerComponent';
-import WorkerListComponent from '../worker/WorkerListComponent';
-import MainComponent from '../worker/MainComponent';
 
 const AppRouter = () => {
     return (
@@ -24,6 +22,5 @@ const AppRouter = () => {
 const style= {
     color: 'black',
     margin: '10px'
-}
-
+};z
 export default AppRouter;
