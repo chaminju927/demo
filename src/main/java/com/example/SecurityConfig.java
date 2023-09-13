@@ -15,7 +15,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf(csrf -> csrf.disable())   //토큰 검사 비활성화 로직
                 .authorizeHttpRequests(requests -> requests
-                        .antMatchers("/login","/index","/worker/**")  // antMatchers 설정한 리소스의 접근을 인증절차 없이 허용
+                        .antMatchers("/login","/index","/worker")  // antMatchers 설정한 리소스의 접근을 인증절차 없이 허용
                         .permitAll()
                         .anyRequest()
                         .authenticated())  //인증된 사용자만 접근할수 있도록 하는 메서드

@@ -11,10 +11,10 @@ function WorkerListComponent(props) {
     useEffect(()=>{
         console.log('component mounted!');
         reloadWorkerList();
-    },[]) //비어있는 배열이 있다는것을 알려줘야함!
+    },[]) 
 
     reloadWorkerList = () => {
-        ApiService.fetchWorkers()
+        ApiService.fetchWorkerByNo(no)
         .then( res => {
            setState({ workers: res.data })
         })

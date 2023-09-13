@@ -62,7 +62,7 @@ function EditWorkerComponent(props) {
         <form>
             <div>
                 <label>No:</label>
-                <input type="number" name="no" value={state.no} readOnly="true" />
+                <input type="number" name="no" value={state.no} readOnly={true} />
             </div>
             <div>
                 <label>Name:</label>
