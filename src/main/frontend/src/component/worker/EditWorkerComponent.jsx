@@ -1,16 +1,15 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ApiService from '../../ApiService';
 
 function EditWorkerComponent(props) {
-    const [state, setState] = useState("");
-    state = {
+    const [workerState, setWorkerState] = useState({
         no: '',
         name: '',
         email: '',
         phone: '',
         message: null
-    }
-    
+    });
+
     useEffect(()=>{
         console.log('component mounted!');
         loadWorker();
@@ -20,7 +19,7 @@ function EditWorkerComponent(props) {
         ApiService.fetchWorkerByNo(window.localStorage.getItem("no"))
             .then(res => {
                 let worker = res.data;
-                setState({
+                setWorkerState({
                     no: worker.no,
                     name: worker.name,
                     email: worker.email,
@@ -30,7 +29,7 @@ function EditWorkerComponent(props) {
     }
 
     onChange = (e) => {
-        setState({
+        setWorkerState({
             [e.target.name]: e.target.value
         });
     }
@@ -44,9 +43,9 @@ function EditWorkerComponent(props) {
             phone: state.phone
         }
 
-        ApiService.editWorker(worker)
+        ApiService.editWorker(worker)  //put 요청
         .then( res => {
-            setState({ message: worker.name + '변경 완료' });
+            setWorkerState({ worker, message: worker.name + '변경 완료' });
             console.log(state.message);
             console.log(res.data);
             props.history.push('/worker');

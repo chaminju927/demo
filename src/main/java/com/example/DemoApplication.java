@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.Worker.Controller.WorkerController;
 
 @CrossOrigin("*")
-@SpringBootApplication //(scanBasePackages = "demo.com.example.Worker")
+@SpringBootApplication
 @RestController
 public class DemoApplication {
 

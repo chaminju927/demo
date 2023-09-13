@@ -51,8 +51,8 @@ public class WorkerController {
 	  public String delete(@PathVariable int no) {
 	    System.out.println("삭제번호 : " + no);
 	    workerService.delete(no);
-	    //return "redirect:/";
-	    return null;
+	    return "deleted Successfully";
+	    //return null;
 	  }
 }
 

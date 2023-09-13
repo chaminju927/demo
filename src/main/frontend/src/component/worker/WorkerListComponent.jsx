@@ -1,43 +1,73 @@
-import { useEffect, useState } from 'react';
-import ApiService from '../../ApiService';
+import React, { useEffect, useState } from 'react';
+//import ApiService from '../../ApiService';
+import axios from 'axios';
 
 function WorkerListComponent(props) {
-    const [state, setState] = useState("");
-    state = {
-        workers: [],
-        message: null
-    }
+    const [workerState, setWorkerState] = useState({
+        no: props.no,
+        name: props.name,
+        email: props.email,
+        phone: props.phone // mainComponent 에서 받아온 props를 초기값으로 설정
+    });
   
     useEffect(()=>{
         console.log('component mounted!');
-        reloadWorkerList();
-    },[]) 
+        //reloadWorkerList();
+    }) 
 
-    reloadWorkerList = () => {
-        ApiService.fetchWorkerByNo(no)
-        .then( res => {
-           setState({ workers: res.data })
-        })
-        .catch(err => {
-            console.log('reloadWorkerList() error', err);
-        })
-    }
+    // const reloadWorkerList = () => {
+    //     ApiService.fetchWorkerByNo(workerState.no)
+    //     .then( res => {
+    //        setWorkerState({ worker: res.data })
+    //     })
+    //     .catch(err => {
+    //         console.log('reloadWorkerList() error', err);
+    //     })
+    // }
+    // const addWorker = () => {
+    //     //props.history.push('/edit-worker');
+    //     const url = "/worker/{workerState.no}"
+    //     const header = {"Content-type":"application/json"}
+    //     const data = {
+    //         no: workerState.no,
+    //         name: workerState.name,
+    //         email: workerState.email,
+    //         phone: workerState.phone
+    //     }
+    //     axios.post(url, data, header)
+    //     .then( res => {
+    //         console.log(res.data);
+    //         //reloadWorkerList();
+    //     })
+    //     .catch(err => console.log('editWorker() error', err))
+    // }
     
-    function editWorker(worker) {
-        window.localStorage.setItem("worker", worker);
-        props.history.push('/edit-worker');
-    }
-
-    function deleteWorker(no) {
-        ApiService.deleteWorker(no)
+    const editWorker = () => {
+        //props.history.push('/edit-worker');
+        const url = "/worker/{workerState.no}"
+        const header = {"Content-type":"application/json"}
+        const data = {
+            no: workerState.no,
+            name: workerState.name,
+            email: workerState.email,
+            phone: workerState.phone
+        }
+        axios.put(url, data, header)
         .then( res => {
             console.log(res.data);
-            setState({ message: 'deleted successfully' });
-            setState({ workers: state.workers.filter( workers => worker.no !== no) });
+            //reloadWorkerList();
         })
-        .catch(err => {
-            console.log('delete err', err);
+        .catch(err => console.log('editWorker() error', err))
+    }
+
+    const deleteWorker = () => {
+        const url = "/worker/{workerState.no}"
+        axios.delete(url)
+        .then( res => {
+            console.log(res.data);
+            //reloadWorkerList();
         })
+        .catch(err => console.log('delete err', err))
     }
  
     return (
@@ -54,14 +84,14 @@ function WorkerListComponent(props) {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{worker.no}</td>
-                        <td>{worker.name}</td>
-                        <td>{worker.email}</td>
-                        <td>{worker.phone}</td>
+                        <td>{workerState.no}</td>
+                        <td>{workerState.name}</td>
+                        <td>{workerState.email}</td>
+                        <td>{workerState.phone}</td>
                         <td>
-                            <button onClick={editWorker(worker.no)}></button>
-                            <button onClick={addWorker(worker)}></button>
-                            <button onClick={deleteWorker(worker.no)}></button>
+                            <button onClick={() => editWorker()}>edit</button>
+                            {/* <button onClick={() => addWorker()}></button> */}  
+                            <button onClick={() => deleteWorker()}>delete</button>
                         </td>
                     </tr>
                 </tbody>

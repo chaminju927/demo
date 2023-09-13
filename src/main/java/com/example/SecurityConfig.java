@@ -25,7 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                                 .loginProcessingUrl("/doLogin")  // form 액션태그
                                 .usernameParameter("id")  // form id 커스터마이징
                                 .passwordParameter("pw")
-                                .defaultSuccessUrl("/index.html", true)
+                                .defaultSuccessUrl("/index.html", true) //true는 로그인 성공후 이동할 페이지를 항상 고정하기 위함
                                 .failureUrl("/login?error=true")
 //			    .successHandler(
 //			            new AuthenticationSuccessHandler() {
@@ -44,17 +44,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 }
 		
-//	    )
-//	    .failureHandler(
-//                new AuthenticationFailureHandler() {
-//                    @Override
-//                    public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
-//                        System.out.println("exception : " + exception.getMessage());
-//                        response.sendRedirect("/login");
-//                    }
-//                }
-//        )
-
 	
 
 
