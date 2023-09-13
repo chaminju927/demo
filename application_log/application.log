@@ -1077,3 +1077,4 @@ org.thymeleaf.exceptions.TemplateInputException: Error resolving template [front
 2023-09-13 17:01:30.465 INFO  [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2023-09-13 17:01:30.466 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
 2023-09-13 17:01:30.466 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
+2023-09-13 18:02:38.822 INFO  [RMI TCP Connection(72)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] - Application shutdown requested.
