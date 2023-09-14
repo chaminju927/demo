@@ -26,19 +26,20 @@ function MainComponent(props) {
         const url = `worker/${workerState.no}`
         console.log(url);
         //const header = { "Content-Type": "application/json" }
-        axios.get(url)
-            .then(res => {
-                console.log(res);
-                // props.history.push({
-                //     pathname: '/edit-worker', 
-                //     //state: { workerState: res.data } 
-                // });
-                // setWorkerState({ searched: true })
-            })
-        .catch(err => console.log('searchWorker() error', err))
+        // axios.get(url)
+        //     .then(res => {
+        //         console.log(res);
+        //         // props.history.push({
+        //         //     pathname: '/edit-worker', 
+        //         //     //state: { workerState: res.data } 
+        //         // });
+        //         // setWorkerState({ searched: true })
+        //     })
+        // .catch(err => console.log('searchWorker() error', err))
     }
  
-    if (workerState.searched) {
+    if(searchWorker){
+    //if (workerState.searched) {
         return (
             <div>
                 <WorkerListComponent />

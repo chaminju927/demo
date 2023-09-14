@@ -16,14 +16,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	    protected void configure(HttpSecurity http) throws Exception {
         http
-                //.httpBasic(basic -> basic.disable())
+                .httpBasic(basic -> basic.disable())
                 .authorizeHttpRequests(
                         request -> request.antMatchers("/", "/main","/login").permitAll().anyRequest().authenticated()
                 );
 		http.formLogin(login -> login
 			      .loginPage("/login") 
 			      .defaultSuccessUrl("/index", true) 
-			      .failureUrl("/login?error=true"));
+			      .failureUrl("/login"));
         http.csrf(csrf -> csrf.disable());
         http.headers(headers -> headers.frameOptions().disable());
        

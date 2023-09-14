@@ -8,22 +8,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping
 @Controller
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin("*")
 public class LoginController {
 	
 //	  @GetMapping("/api/hello")
 //	    public String test() {
 //	        return "Hello, world!";
 //	    }
-//	  @GetMapping("/login")  // .loginPage("LOGIN_PAGE")에서 설정한 LOGIN_PAGE와 일치해야 함
-//	  public String getLoginForm() {
-//		  return "loginPage";
-//	  }
+	  @GetMapping("/login")  // .loginPage("LOGIN_PAGE")에서 설정한 LOGIN_PAGE와 일치해야 함
+	  public String getLoginForm() {
+		  return "loginPage";
+	  }
 	
-//	@GetMapping("/")
-//    public String getIndex() {
-//        return "index";
-//    }
+	@GetMapping("/")
+    public String getIndex() {
+        return "index";
+    }
 	
 //	@GetMapping("/main")
 //    public String getMain() {

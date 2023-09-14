@@ -3,12 +3,20 @@ import * as ReactDOM from 'react-dom';
 import App from './App';
 import { legacy_createStore as createStore } from "redux";
 
-const store = createStore();
+//const store = createStore();
+
+
+// ReactDOM.render(
+//   <Provider store={store}>
+//     <App />
+//   </Provider>,
+//   document.getElementById('root')
+// );
 
 
 ReactDOM.render(
-  <Provider store={store}>
+  <React.StrictMode>
     <App />
-  </Provider>,
+  </React.StrictMode>,
   document.getElementById('root')
 );

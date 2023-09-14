@@ -15,7 +15,11 @@
     insert into worker(no, name, email, phone)
     values(#{no}, #{name}, #{email}, #{phone}); 
   </insert>
-  
+  <select id="getWorker" parameterType="no" resultType="String">
+    select name
+    from worker
+    where no=#{no};
+  </select>
   <select id="getWorker" parameterType="int" resultType="com.example.Worker.Vo.Worker">
     select *
     from worker

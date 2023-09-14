@@ -66,7 +66,7 @@ function WorkerListComponent(props) {
                         <td>{workerState.phone}</td>
                         <td>
                             <button onClick={() => editWorker()}>edit</button>
-                            <button onClick={() => addWorker()}></button>  
+                            <button onClick={() => addWorker()}>add</button>  
                             <button onClick={() => deleteWorker()}>delete</button>
                         </td>
                     </tr>
