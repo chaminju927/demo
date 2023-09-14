@@ -1,40 +1,35 @@
 import { useState } from 'react';
-import ApiService from '../../ApiService';
+import axios from 'axios';
+//import ApiService from '../../ApiService';
 
-function AddWorkerComponent(props) {
-    const [state, setState] = useState({
+function AddWorkerComponent() {
+    const [workerState, setWorkerState] = useState({
         no: '',
         name: '',
         email: '',
-        phone: '',
-        message: null
+        phone: ''
     });
 
-    function onChange(e) {
-        const fieldName = e.target.name;
-        const fieldValue = e.target.value;
-        setState(prevState => ({
-            ...prevState,
-            [fieldName]: fieldValue
-        }));
+    const inputChange = (e) => {
+        setWorkerState({ [e.target.name]: e.target.value });
     }
 
-    function saveWorker(e) {
-        e.preventDefault();
-        let worker = {
-            no: state.no,
-            name: state.name,
-            email: state.email,
-            phone: state.phone
+    const saveWorker = () => {
+        const header = {"Content-type":"application/json", "Origin":"http://localhost:3000"}
+        const data = {
+            no: workerState.no,
+            name: workerState.name,
+            email: workerState.email,
+            phone: workerState.phone
         }
-        ApiService.addWorker(worker)
+        axios.post('/worker', data, header)
             .then(res => {
-                setState({ ...state, message: worker.name + ' 등록 완료' });
-                console.log(state.message);
-                props.history.push('/workers');
+                console.log(res);
+                //setWorkerState({ res.data });
+                //props.history.push('/worker');
             })
             .catch(err => {
-                console.log('saveWorker() 에러', err);
+                console.log('save 에러', err);
             })
     }
 
@@ -44,21 +39,21 @@ function AddWorkerComponent(props) {
             <form>
                 <div>
                     <label>No:</label>
-                    <input type="number" name="no" value={state.no} onChange={onChange} />
+                    <input type="number" name="no" value={workerState.no} onChange={inputChange} />
                 </div>
                 <div>
                     <label>Name:</label>
-                    <input type="text" name="name" value={state.name} onChange={onChange} />
+                    <input type="text" name="name" value={workerState.name} onChange={inputChange} />
                 </div>
                 <div>
                     <label>Email:</label>
-                    <input type="text" name="email" value={state.email} onChange={onChange} />
+                    <input type="text" name="email" value={workerState.email} onChange={inputChange} />
                 </div>
                 <div>
                     <label>Phone:</label>
-                    <input type="number" name="phone" value={state.phone} onChange={onChange} />
+                    <input type="number" name="phone" value={workerState.phone} onChange={inputChange} />
                 </div>
-                <button onClick={saveWorker}>save</button>
+                <button onClick={() => saveWorker()}>save</button>
             </form>
         </div>
     )

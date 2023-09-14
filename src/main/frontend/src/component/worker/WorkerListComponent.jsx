@@ -1,69 +1,47 @@
 import React, { useEffect, useState } from 'react';
 //import ApiService from '../../ApiService';
 import axios from 'axios';
+import AddWorkerComponent from './AddWorkerComponent';
+import EditWorkerComponent from './EditWorkerComponent';
 
 function WorkerListComponent(props) {
     const [workerState, setWorkerState] = useState({
         no: props.no,
         name: props.name,
         email: props.email,
-        phone: props.phone // mainComponent 에서 받아온 props를 초기값으로 설정
+        phone: props.phone // mainComponent 에서 받아온 props
     });
   
     useEffect(()=>{
-        console.log('component mounted!');
-        //reloadWorkerList();
+        console.log('liscomponent mounted!');
+        reloadWorkerList();
     }) 
 
-    // const reloadWorkerList = () => {
-    //     ApiService.fetchWorkerByNo(workerState.no)
-    //     .then( res => {
-    //        setWorkerState({ worker: res.data })
-    //     })
-    //     .catch(err => {
-    //         console.log('reloadWorkerList() error', err);
-    //     })
-    // }
-    // const addWorker = () => {
-    //     //props.history.push('/edit-worker');
-    //     const url = "/worker/{workerState.no}"
-    //     const header = {"Content-type":"application/json"}
-    //     const data = {
-    //         no: workerState.no,
-    //         name: workerState.name,
-    //         email: workerState.email,
-    //         phone: workerState.phone
-    //     }
-    //     axios.post(url, data, header)
-    //     .then( res => {
-    //         console.log(res.data);
-    //         //reloadWorkerList();
-    //     })
-    //     .catch(err => console.log('editWorker() error', err))
-    // }
-    
-    const editWorker = () => {
-        //props.history.push('/edit-worker');
-        const header = {"Content-type":"application/json"}
-        const data = {
-            no: workerState.no,
-            name: workerState.name,
-            email: workerState.email,
-            phone: workerState.phone
-        }
-        axios.put(`/worker/${workerState.no}`, data, header)
+    const reloadWorkerList = () => {
+        const header = {"Content-type":"application/json", "Origin":"http://localhost:3000"}
+        axios.get(`/worker/${workerState.no}`, header)
         .then( res => {
             console.log(res.data);
-            //reloadWorkerList();
+            //setWorkerState({ worker: res.data })
         })
-        .catch(err => console.log('editWorker() error', err))
+        .catch(err => {
+            console.log('reloadWorkerList() error', err);
+        })
+    }
+    const addWorker = () => {
+        return <AddWorkerComponent />
+    }
+    
+    const editWorker = () => {
+        props.history.push('/edit-worker');
+        return <EditWorkerComponent />
     }
 
     const deleteWorker = () => { 
         axios.delete(`/worker/${workerState.no}`)
         .then( res => {
             console.log(res.data);
-            //reloadWorkerList();
+            reloadWorkerList();
         })
         .catch(err => console.log('delete err', err))
     }
@@ -88,7 +66,7 @@ function WorkerListComponent(props) {
                         <td>{workerState.phone}</td>
                         <td>
                             <button onClick={() => editWorker()}>edit</button>
-                            {/* <button onClick={() => addWorker()}></button> */}  
+                            <button onClick={() => addWorker()}></button>  
                             <button onClick={() => deleteWorker()}>delete</button>
                         </td>
                     </tr>
@@ -96,5 +74,7 @@ function WorkerListComponent(props) {
             </table>
         </div>
     );
-    }
+
+}
+    
 export default WorkerListComponent;

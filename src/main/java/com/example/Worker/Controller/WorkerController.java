@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.Worker.Service.WorkerService;
 import com.example.Worker.Vo.Worker;
 
-@CrossOrigin("*")
 @RequestMapping(value = "/worker")
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class WorkerController {
 	
 	//private final Logger logger = LoggerFactory.getLogger("LoggerController의 로그");
@@ -44,7 +44,7 @@ public class WorkerController {
 	public Worker update(@RequestBody Worker worker) {
 		System.out.println(worker);
 		workerService.update(worker);
-		return null;
+		return worker;
 	}
 
 	  @DeleteMapping("/{no}")

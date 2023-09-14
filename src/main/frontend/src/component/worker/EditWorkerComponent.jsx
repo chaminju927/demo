@@ -1,55 +1,40 @@
 import React, { useEffect, useState } from 'react';
-import ApiService from '../../ApiService';
+import axios from 'axios';
+//import ApiService from '../../ApiService';
 
 function EditWorkerComponent(props) {
     const [workerState, setWorkerState] = useState({
-        no: '',
-        name: '',
-        email: '',
-        phone: '',
-        message: null
-    });
-    useEffect(() => {
-        console.log('component mounted!');
-        loadWorker();
+        no: 'props.no',
+        name: 'props.name',
+        email: 'props.email',
+        phone: 'props.phone'
     });
 
- 
-    // onChange 핸들러 수정
-    const onChange = (e) => {
-        setWorkerState({...state, [e.target.name]: e.target.value});
+    useEffect(() => {
+        console.log('EditComponent mounted!');
+    });
+
+    const inputChange = (e) => {
+        setWorkerState({...workerState, [e.target.name]: e.target.value});
     }
 
-    const saveWorker = (e) => {
-        e.preventDefault();
-        let worker = {
-            no: state.no,
-            name: state.name,
-            email: state.email,
-            phone: state.phone
+    const saveWorker = () => {
+        const header = {"Content-type":"application/json"}
+        const data = {
+            no: workerState.no,
+            name: workerState.name,
+            email: workerState.email,
+            phone: workerState.phone
         }
-
-        ApiService.editWorker(worker)  //put 요청
+        axios.put(`/worker/${data.no}`, data, header)
         .then( res => {
-            setWorkerState({ worker, message: worker.name + '변경 완료' });
-            console.log(state.message);
             console.log(res.data);
-            props.history.push('/worker');
+            //setWorkerState({ res.data });
+            //props.history.push('/worker');
         })
         .catch( err => {
             console.log('editWorker() 에러', err);
         })
-
-        ApiService.editWorker(worker)
-            .then(res => {
-                setWorkerState({ ...state, message: worker.name + ' 변경 완료' });
-                console.log(state.message);
-                console.log(res.data);
-                props.history.push('/worker');
-            })
-            .catch(err => {
-                console.log('editWorker() 에러', err);
-            })
     }
 
     return (
@@ -58,21 +43,21 @@ function EditWorkerComponent(props) {
         <form>
             <div>
                 <label>No:</label>
-                <input type="number" name="no" value={state.no} readOnly={true} />
+                <input type="number" name="no" value={workerState.no} readOnly={true} />
             </div>
             <div>
                 <label>Name:</label>
-                <input type="text" name="name" value={state.name} onChange={state.name} />
+                <input type="text" name="name" value={workerState.name} onChange={inputChange} />
             </div>
             <div>
                 <label>Email:</label>
-                <input type="text" name="email" value={state.email} onChange={state.email} />
+                <input type="text" name="email" value={workerState.email} onChange={inputChange} />
             </div>
             <div>
                 <label>Phone:</label>
-                <input type="number" name="phone" value={state.phone} onChange={state.phone} />
+                <input type="number" name="phone" value={workerState.phone} onChange={inputChange} />
             </div>
-            <button onClick={saveWorker}>save</button>
+            <button onClick={() => saveWorker}>save</button>
         </form>
     </div>
     );

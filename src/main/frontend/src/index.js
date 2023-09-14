@@ -1,11 +1,14 @@
 import React from 'react';
 import * as ReactDOM from 'react-dom';
 import App from './App';
-//import reportWebVitals from './reportWebVitals';
+import { legacy_createStore as createStore } from "redux";
+
+const store = createStore();
+
 
 ReactDOM.render(
-  <React.StrictMode>
-        <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root')
 );
