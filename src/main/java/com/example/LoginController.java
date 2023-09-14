@@ -15,10 +15,10 @@ public class LoginController {
 //	    public String test() {
 //	        return "Hello, world!";
 //	    }
-	  @GetMapping("/login")  // .loginPage("LOGIN_PAGE")에서 설정한 LOGIN_PAGE와 일치해야 함
-	  public String getLoginForm() {
-		  return "loginPage";
-	  }
+//	  @GetMapping("/login")  // .loginPage("LOGIN_PAGE")에서 설정한 LOGIN_PAGE와 일치해야 함
+//	  public String getLoginForm() {
+//		  return "loginPage";
+//	  }
 	
 //	@GetMapping("/")
 //    public String getIndex() {

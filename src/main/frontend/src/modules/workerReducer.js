@@ -1,9 +1,7 @@
 import { legacy_createStore as createStore } from "redux";
 
 /* 리덕스에서 관리 할 state의 초기값 */
-const initialState = {
-    worker: []
-};
+const initialState = { worker: [] };
 
 /* 액션 객체 타입 정의 */
 const ADD = 'ADD';
@@ -12,30 +10,35 @@ const UPDATE = 'UPDATE';
 const DELETE = 'DELETE';
 
 /* 액션 생성함수 정의 */
-export const addWorker = item => ({
+export const addWorker = (workerData) => ({
     type: ADD,
-    item
+    workerData: {
+        no: workerData.no,
+        name: workerData.name,
+        email: workerData.email,
+        phone: workerData.phone
+    }
 });
 
-export const getWorker = text => ({
+export const getWorker = () => ({
     type: GET,
     text
 });
 
-export const updateWorker = item => ({
+export const updateWorker = () => ({
     ...state,
     type: UPDATE,
     item
 });
 
-export const deleteWorker = text => ({
+export const deleteWorker = (workerNo) => ({
     type: DELETE,
-    text
+    workerNo: workerNo
 });
 
 /* 리듀서 만들기 */
 // 위 액션 생성함수들을 통해 만들어진 액션객체들을 참조하여 새로운 상태를 만드는 함수를 만들기
-export default function reducer(state = initialState, action) { //initialState가 초기값
+export default function workerReducer(state = initialState, action) { //initialState가 초기값
     switch(action.type){
         case ADD:
             return {
@@ -46,7 +49,7 @@ export default function reducer(state = initialState, action) { //initialState�
             return {
                 ...state
             };
-        case CHANGE:
+        case UPDATE:
             return {
                 ...state,
                 worker: state.worker.concat(action.item)
@@ -77,7 +80,7 @@ const unsubscribe = store.unsubscribe(listener);
 
 //액션 디스패치
 // 액션이 디스패치 될 때마다 상태가 바뀌고, 이에 따라 listener 함수가 호출 될 것
-store.dispatch(add());
-store.dispatch(get());
-store.dispatch(change());
+store.dispatch(addWorker());
+store.dispatch(getWorker());
+store.dispatch(updateWorker());
 store.dispatch(deleteWorker());

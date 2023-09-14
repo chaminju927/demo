@@ -5595,3 +5595,161 @@ java.lang.IllegalArgumentException: When allowCredentials is true, allowedOrigin
 2023-09-14 15:05:39.614 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
 2023-09-14 15:05:39.615 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
 2023-09-14 16:17:26.069 INFO  [RMI TCP Connection(81)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] - Application shutdown requested.
+2023-09-14 18:19:03.791 INFO  [main] [com.example.DemoApplication] - Starting DemoApplication using Java 1.8.0_20 on DESKTOP-42OAV3A with PID 1736 (C:\Users\JNESS\git\demo\bin\main started by 20230901 in C:\Users\JNESS\git\demo)
+2023-09-14 18:19:03.796 INFO  [main] [com.example.DemoApplication] - No active profile set, falling back to default profiles: default
+2023-09-14 18:19:04.720 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-09-14 18:19:04.729 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-14 18:19:04.729 INFO  [main] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-09-14 18:19:04.729 INFO  [main] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2023-09-14 18:19:04.879 INFO  [main] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-09-14 18:19:04.884 INFO  [main] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-09-14 18:19:04.884 INFO  [main] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 1032 ms
+2023-09-14 18:19:05.417 INFO  [main] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4eb1c69, org.springframework.security.web.context.SecurityContextPersistenceFilter@1317b708, org.springframework.security.web.header.HeaderWriterFilter@5c8e67b9, org.springframework.security.web.authentication.logout.LogoutFilter@76db540e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2af46afd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2e51d054, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4743a322, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@73d3e555, org.springframework.security.web.session.SessionManagementFilter@49206065, org.springframework.security.web.access.ExceptionTranslationFilter@1fde0371, org.springframework.security.web.access.intercept.AuthorizationFilter@688d411b]
+2023-09-14 18:19:05.451 WARN  [main] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/web/servlet/config/annotation/DelegatingWebMvcConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]: Factory method 'requestMappingHandlerMapping' threw exception; nested exception is org.springframework.web.util.pattern.PatternParseException: No more pattern data allowed after {*...} or ** pattern element
+2023-09-14 18:19:05.453 INFO  [main] [org.apache.catalina.core.StandardService] - Stopping service [Tomcat]
+2023-09-14 18:19:05.463 INFO  [main] [o.s.b.a.l.ConditionEvaluationReportLoggingListener] - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-09-14 18:19:05.482 ERROR [main] [o.s.b.d.LoggingFailureAnalysisReporter] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Invalid mapping pattern detected: /**/**
+^
+No more pattern data allowed after {*...} or ** pattern element
+
+Action:
+
+Fix this pattern in your application or switch to the legacy parser implementation with 'spring.mvc.pathmatch.matching-strategy=ant_path_matcher'.
+
+2023-09-14 18:19:34.198 INFO  [main] [com.example.DemoApplication] - Starting DemoApplication using Java 1.8.0_20 on DESKTOP-42OAV3A with PID 3528 (C:\Users\JNESS\git\demo\bin\main started by 20230901 in C:\Users\JNESS\git\demo)
+2023-09-14 18:19:34.201 INFO  [main] [com.example.DemoApplication] - No active profile set, falling back to default profiles: default
+2023-09-14 18:19:35.046 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-09-14 18:19:35.054 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-14 18:19:35.055 INFO  [main] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-09-14 18:19:35.055 INFO  [main] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2023-09-14 18:19:35.202 INFO  [main] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-09-14 18:19:35.207 INFO  [main] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-09-14 18:19:35.207 INFO  [main] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 959 ms
+2023-09-14 18:19:35.611 INFO  [main] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@126f1ba8, org.springframework.security.web.context.SecurityContextPersistenceFilter@5412bfea, org.springframework.security.web.header.HeaderWriterFilter@4f5f6e45, org.springframework.security.web.authentication.logout.LogoutFilter@20de05e5, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4eb1c69, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4743a322, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@a565cbd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3a08078c, org.springframework.security.web.session.SessionManagementFilter@407873d3, org.springframework.security.web.access.ExceptionTranslationFilter@6438a7fe, org.springframework.security.web.access.intercept.AuthorizationFilter@295bf2a]
+2023-09-14 18:19:35.815 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8080"]
+2023-09-14 18:19:35.835 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-14 18:19:35.843 INFO  [main] [com.example.DemoApplication] - Started DemoApplication in 2.0 seconds (JVM running for 3.048)
+2023-09-14 18:19:47.171 INFO  [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-14 18:19:47.171 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-09-14 18:19:47.172 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
+2023-09-14 18:21:11.263 INFO  [RMI TCP Connection(11)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] - Application shutdown requested.
+2023-09-14 18:21:14.434 INFO  [main] [com.example.DemoApplication] - Starting DemoApplication using Java 1.8.0_20 on DESKTOP-42OAV3A with PID 15672 (C:\Users\JNESS\git\demo\bin\main started by 20230901 in C:\Users\JNESS\git\demo)
+2023-09-14 18:21:14.436 INFO  [main] [com.example.DemoApplication] - No active profile set, falling back to default profiles: default
+2023-09-14 18:21:15.307 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-09-14 18:21:15.316 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-14 18:21:15.316 INFO  [main] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-09-14 18:21:15.316 INFO  [main] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2023-09-14 18:21:15.463 INFO  [main] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-09-14 18:21:15.468 INFO  [main] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-09-14 18:21:15.469 INFO  [main] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 994 ms
+2023-09-14 18:21:15.857 INFO  [main] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@74d3b638, org.springframework.security.web.context.SecurityContextPersistenceFilter@407873d3, org.springframework.security.web.header.HeaderWriterFilter@6438a7fe, org.springframework.security.web.authentication.logout.LogoutFilter@2a2843ec, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6ff6efdc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5412bfea, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@61c42416, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4487c0c2, org.springframework.security.web.session.SessionManagementFilter@4f5f6e45, org.springframework.security.web.access.ExceptionTranslationFilter@3c0bbc9f, org.springframework.security.web.access.intercept.AuthorizationFilter@760245e1]
+2023-09-14 18:21:16.087 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8080"]
+2023-09-14 18:21:16.108 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-14 18:21:16.115 INFO  [main] [com.example.DemoApplication] - Started DemoApplication in 1.968 seconds (JVM running for 2.539)
+2023-09-14 18:21:48.400 INFO  [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-14 18:21:48.400 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-09-14 18:21:48.401 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
+2023-09-14 18:26:10.135 INFO  [RMI TCP Connection(14)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] - Application shutdown requested.
+2023-09-14 18:26:15.497 INFO  [main] [com.example.DemoApplication] - Starting DemoApplication using Java 1.8.0_20 on DESKTOP-42OAV3A with PID 15892 (C:\Users\JNESS\git\demo\bin\main started by 20230901 in C:\Users\JNESS\git\demo)
+2023-09-14 18:26:15.500 INFO  [main] [com.example.DemoApplication] - No active profile set, falling back to default profiles: default
+2023-09-14 18:26:16.330 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-09-14 18:26:16.338 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-14 18:26:16.339 INFO  [main] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-09-14 18:26:16.339 INFO  [main] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2023-09-14 18:26:16.486 INFO  [main] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-09-14 18:26:16.491 INFO  [main] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-09-14 18:26:16.491 INFO  [main] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 951 ms
+2023-09-14 18:26:16.848 INFO  [main] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5e1fc2aa, org.springframework.security.web.context.SecurityContextPersistenceFilter@66213a0d, org.springframework.security.web.header.HeaderWriterFilter@c35af2a, org.springframework.security.web.authentication.logout.LogoutFilter@329a1f8d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2af4129d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3cb8c8ce, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1317b708, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@688d411b, org.springframework.security.web.session.SessionManagementFilter@1835d3ed, org.springframework.security.web.access.ExceptionTranslationFilter@3e7c4815, org.springframework.security.web.access.intercept.AuthorizationFilter@16c587de]
+2023-09-14 18:26:17.053 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8080"]
+2023-09-14 18:26:17.072 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-14 18:26:17.079 INFO  [main] [com.example.DemoApplication] - Started DemoApplication in 1.885 seconds (JVM running for 2.473)
+2023-09-14 18:26:46.084 INFO  [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-14 18:26:46.085 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-09-14 18:26:46.086 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
+2023-09-14 18:26:46.106 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /
+2023-09-14 18:26:52.837 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /
+2023-09-14 18:26:52.921 ERROR [http-nio-8080-exec-4] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Could not resolve view with name 'loginPage' in servlet with name 'dispatcherServlet'] with root cause
+javax.servlet.ServletException: Could not resolve view with name 'loginPage' in servlet with name 'dispatcherServlet'
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1380)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1145)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1084)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilterInternal(AuthorizationFilter.java:58)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:219)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:213)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2023-09-14 18:28:05.355 INFO  [RMI TCP Connection(11)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] - Application shutdown requested.
