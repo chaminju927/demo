@@ -4,7 +4,6 @@
 <mapper namespace="com.example.Worker.Dao.WorkerDao">
 
   <resultMap type="com.example.Worker.Vo.Worker" id="workerMap">
-    <!-- 컬럼명과 프로퍼티명을 정확하게 일치시켜야 합니다. -->
     <id column="no" property="no"/>
     <result column="name" property="name"/>
     <result column="email" property="email"/>
@@ -37,7 +36,7 @@
   <update id="update" parameterType="com.example.Worker.Vo.Worker">
 	  update worker
 	  set 
-	  no=#{no}, name=#{name}, phone=#{phone}, email=#{email}
+	  (no=#{no}, name=#{name}, phone=#{phone}, email=#{email})
 	  where no = #{no};
   </update>
 </mapper>

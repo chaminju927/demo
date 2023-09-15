@@ -41,12 +41,7 @@ public class WorkerController {
 		System.out.println(no);
 		return workerService.get(no);
 	}
-//	@GetMapping("/{no}")
-//	public String list(@PathVariable("no") int no) {
-//		System.out.println(no);
-//		return "success!";
-//	}
-	
+
 	@PutMapping("/{no}")
 	public Worker update(@RequestBody Worker worker) {
 		System.out.println(worker);

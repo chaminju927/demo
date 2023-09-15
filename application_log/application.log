@@ -9247,3 +9247,6 @@ javax.servlet.ServletException: Could not resolve view with name 'index' in serv
 2023-09-15 13:01:50.646 WARN  [HikariPool-1 housekeeper] [com.zaxxer.hikari.pool.HikariPool] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=48m10s527ms400µs400ns).
 2023-09-15 13:13:12.618 WARN  [http-nio-8080-exec-9] [o.s.w.s.m.s.DefaultHandlerExceptionResolver] - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
 2023-09-15 13:21:54.345 WARN  [http-nio-8080-exec-4] [o.s.w.s.m.s.DefaultHandlerExceptionResolver] - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "undefined"]
+2023-09-15 18:14:26.994 INFO  [RMI TCP Connection(377)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] - Application shutdown requested.
+2023-09-15 18:14:27.061 INFO  [RMI TCP Connection(377)-127.0.0.1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2023-09-15 18:14:27.064 INFO  [RMI TCP Connection(377)-127.0.0.1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
