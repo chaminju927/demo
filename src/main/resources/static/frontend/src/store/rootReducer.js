@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import Workers from './Workers';
+import workerReducer from './workerReducer';
 
 const rootReducer = combineReducers({
-    Workers
+    workerReducer
 });
 
 export default rootReducer;

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-//import ApiService from '../../ApiService';
-import axios from 'axios';
+import { useDispatch } from 'react-redux';
 import WorkerListComponent from './WorkerListComponent';
+import { getWorker } from './store/workerRedcuer';
+import { configureStore } from '@reduxjs/toolkit';
 
 function MainComponent(props) {
     const [workerState, setWorkerState] = useState({
@@ -11,26 +12,29 @@ function MainComponent(props) {
         phone: '' ,
         searched: false
     });
-  
+    
     useEffect(()=>{
         //console.log('component mounted!');
         //reloadWorkerList();
+        const dispatch = useDispatch();
     }) 
-
+    
     const inputChange = (e) => {
         setWorkerState ({ no :  e.target.value });
     }
-
+    
     const searchWorker = () => {
-        const url = `worker/${workerState.no}`
-        console.log(url);
-        axios.get(url)
-            .then(res => {
-                console.log(res);
-                 setWorkerState({ ...res.data, searched:true})
+        
+        configureStore.dispatch(getWorker());
+        // const url = `worker/${workerState.no}`
+        // //console.log(url);
+        // axios.get(url)
+        //     .then(res => {
+        //         console.log(res);
+        //          setWorkerState({ ...res.data, searched:true})
                  
-            })
-        .catch(err => console.log('searchWorker() error', err))
+        //     })
+        // .catch(err => console.log('searchWorker() error', err))
     }
  
     if (workerState.searched) {
