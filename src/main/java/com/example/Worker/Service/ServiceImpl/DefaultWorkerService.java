@@ -14,15 +14,15 @@ public class DefaultWorkerService implements WorkerService {
 
 	@Autowired(required=true) WorkerDao workerDao;
 	
-//	@Override
-//	public Worker get(int no) {
-//		return workerDao.getWorker(no);
-//	}
-	
 	@Override
-	public String get(int no) {
+	public Worker get(int no) {
 		return workerDao.getWorker(no);
 	}
+	
+//	@Override
+//	public String get(int no) {
+//		return workerDao.getWorker(no);
+//	}
 
 	  @Override
 	  public void add(Worker worker) {

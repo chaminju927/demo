@@ -1,7 +1,16 @@
 import { legacy_createStore as createStore } from "redux";
 
 /* 리덕스에서 관리 할 state의 초기값 */
-const initialState = { worker: [] };
+const initialState = {
+    worker: [
+        {
+            no: '',
+            name: '',
+            email: '',
+            phone: ''
+        }
+    ] 
+};
 
 /* 액션 객체 타입 정의 */
 const ADD = 'ADD';
@@ -9,7 +18,7 @@ const GET = 'GET';
 const UPDATE = 'UPDATE';
 const DELETE = 'DELETE';
 
-/* 액션 생성함수 정의 */
+/* 액션 생성함수 정의 - dispatch시 import해야하므로 export하기 */
 export const addWorker = (workerData) => ({
     type: ADD,
     workerData: {
@@ -20,15 +29,14 @@ export const addWorker = (workerData) => ({
     }
 });
 
-export const getWorker = () => ({
+export const getWorker = (workerNo) => ({
     type: GET,
-    text
+    workerNo
 });
 
-export const updateWorker = () => ({
-    ...state,
+export const updateWorker = (workerData) => ({
     type: UPDATE,
-    item
+    workerData
 });
 
 export const deleteWorker = (workerNo) => ({
@@ -36,9 +44,9 @@ export const deleteWorker = (workerNo) => ({
     workerNo: workerNo
 });
 
-/* 리듀서 만들기 */
-// 위 액션 생성함수들을 통해 만들어진 액션객체들을 참조하여 새로운 상태를 만드는 함수를 만들기
-export default function workerReducer(state = initialState, action) { //initialState가 초기값
+/* 리듀서 */
+//액션 생성함수들을 통해 만들어진 액션객체들을 참조하여 새로운 상태를 만드는 함수
+export default function workerReducer(state = initialState, action) { 
     switch(action.type){
         case ADD:
             return {

@@ -4,10 +4,10 @@ import axios from 'axios';
 
 function EditWorkerComponent(props) {
     const [workerState, setWorkerState] = useState({
-        no: 'props.no',
-        name: 'props.name',
-        email: 'props.email',
-        phone: 'props.phone'
+        no: props.no,
+        name: props.name,
+        email: props.email,
+        phone: props.phone
     });
 
     useEffect(() => {
@@ -43,21 +43,21 @@ function EditWorkerComponent(props) {
         <form>
             <div>
                 <label>No:</label>
-                <input type="number" name="no" value={workerState.no} readOnly={true} />
+                <input type="number" name="no" value={props.workerState.no} readOnly={true} />
             </div>
             <div>
                 <label>Name:</label>
-                <input type="text" name="name" value={workerState.name} onChange={inputChange} />
+                <input type="text" name="name" value={props.workerState.name} onChange={inputChange}  />
             </div>
             <div>
                 <label>Email:</label>
-                <input type="text" name="email" value={workerState.email} onChange={inputChange} />
+                <input type="text" name="email" value={props.workerState.email} onChange={inputChange} />
             </div>
             <div>
                 <label>Phone:</label>
-                <input type="number" name="phone" value={workerState.phone} onChange={inputChange} />
+                <input type="number" name="phone" value={props.workerState.phone} onChange={inputChange} />
             </div>
-            <button onClick={() => saveWorker}>save</button>
+            <button onClick={() => saveWorker()}>save</button>
         </form>
     </div>
     );

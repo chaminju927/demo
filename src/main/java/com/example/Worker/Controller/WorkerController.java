@@ -16,8 +16,8 @@ import com.example.Worker.Vo.Worker;
 
 @RequestMapping(value = "/worker")
 @RestController
-//@CrossOrigin(origins = "http://localhost:3000")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin
 public class WorkerController {
 	
 	//private final Logger logger = LoggerFactory.getLogger("LoggerController의 로그");
@@ -36,16 +36,16 @@ public class WorkerController {
 		return null;
 	 }
 
-//	@GetMapping("/{no}")
-//	public Worker list(@PathVariable("no") int no) {
-//		System.out.println(no);
-//		return workerService.get(no);
-//	}
 	@GetMapping("/{no}")
-	public String list(@PathVariable("no") int no) {
+	public Worker list(@PathVariable("no") int no) {
 		System.out.println(no);
-		return "success!";
+		return workerService.get(no);
 	}
+//	@GetMapping("/{no}")
+//	public String list(@PathVariable("no") int no) {
+//		System.out.println(no);
+//		return "success!";
+//	}
 	
 	@PutMapping("/{no}")
 	public Worker update(@RequestBody Worker worker) {

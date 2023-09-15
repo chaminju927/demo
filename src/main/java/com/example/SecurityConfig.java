@@ -15,15 +15,15 @@ import lombok.RequiredArgsConstructor;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	    protected void configure(HttpSecurity http) throws Exception {
-        http
-                .httpBasic(basic -> basic.disable())
-                .authorizeHttpRequests(
-                        request -> request.antMatchers("/", "/main","/login").permitAll().anyRequest().authenticated()
-                );
-		http.formLogin(login -> login
-			      .loginPage("/login") 
-			      .defaultSuccessUrl("/index", true) 
-			      .failureUrl("/login"));
+//        http
+//                .httpBasic(basic -> basic.disable())
+//                .authorizeHttpRequests(
+//                        request -> request.antMatchers("/", "/worker","/loginPage").permitAll().anyRequest().authenticated()
+//                );
+//		http.formLogin(login -> login
+//			      .loginPage("/loginPage") 
+//			      .defaultSuccessUrl("/index", true) 
+//			      .failureUrl("/loginPage"));
         http.csrf(csrf -> csrf.disable());
         http.headers(headers -> headers.frameOptions().disable());
        

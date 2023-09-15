@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import WorkerListComponent from './WorkerListComponent';
 //import ApiService from '../../ApiService';
 
 function AddWorkerComponent() {
@@ -7,7 +8,8 @@ function AddWorkerComponent() {
         no: '',
         name: '',
         email: '',
-        phone: ''
+        phone: '',
+        saveClicked: false
     });
 
     const inputChange = (e) => {
@@ -15,7 +17,8 @@ function AddWorkerComponent() {
     }
 
     const saveWorker = () => {
-        const header = {"Content-type":"application/json", "Origin":"http://localhost:3000"}
+        setWorkerState({ saveClicked : true })
+        const header = {"Content-type":"application/json"}
         const data = {
             no: workerState.no,
             name: workerState.name,
@@ -26,13 +29,16 @@ function AddWorkerComponent() {
             .then(res => {
                 console.log(res);
                 //setWorkerState({ res.data });
-                //props.history.push('/worker');
             })
             .catch(err => {
                 console.log('save 에러', err);
             })
     }
-
+    if(workerState.saveClicked){
+        return ( 
+            <WorkerListComponent />
+        )
+    }
     return (
         <div>
             <h2>Add Worker</h2>
