@@ -16,6 +16,7 @@ function WorkerListComponent(props) {
   
     useEffect(()=>{
         console.log('liscomponent mounted!');
+        console.log(props);
         //reloadWorkerList();
     }) 
 
@@ -30,6 +31,11 @@ function WorkerListComponent(props) {
     //         console.log('reloadWorkerList() error', err);
     //     })
     // }
+
+    const inputChange = (e) => {
+        setWorkerState({ ...workerState, [e.target.name]: e.target.value });
+    }
+
     const addWorker = () => {
         setWorkerState({ ...workerState, clicked : 'add' })
     }
@@ -49,12 +55,50 @@ function WorkerListComponent(props) {
         setWorkerState({ ...workerState, clicked: 'edit'})
     }
 
+    const saveWorker = () => {
+        setWorkerState({ saveClicked : true })
+        const header = {"Content-type":"application/json"}
+        const data = {
+            no: workerState.no,
+            name: workerState.name,
+            email: workerState.email,
+            phone: workerState.phone
+        }
+        axios.post('/worker', data, header)
+            .then(res => {
+                console.log(res);
+                //setWorkerState({ res.data });
+            })
+            .catch(err => {
+                console.log('save 에러', err);
+            })
+    }
+
     switch(workerState.clicked){
         case 'add' :
             return (
                 <div>
-                    <AddWorkerComponent workerState={workerState} />
-                </div>
+                <h2>Add Worker</h2>
+                <form>
+                    <div>
+                        <label>No:</label>
+                        <input type="number" name="no" value={workerState.no} onChange={inputChange} />
+                    </div>
+                    <div>
+                        <label>Name:</label>
+                        <input type="text" name="name" value={workerState.name} onChange={inputChange} />
+                    </div>
+                    <div>
+                        <label>Email:</label>
+                        <input type="text" name="email" value={workerState.email} onChange={inputChange} />
+                    </div>
+                    <div>
+                        <label>Phone:</label>
+                        <input type="number" name="phone" value={workerState.phone} onChange={inputChange} />
+                    </div>
+                    <button onClick={() => saveWorker()}>save</button>
+                </form>
+            </div>
             )
         case 'delete' :
             return (
@@ -65,7 +109,7 @@ function WorkerListComponent(props) {
         case 'edit' :  
             return (
                 <div>
-                    <EditWorkerComponent workerState={workerState} />
+                    <EditWorkerComponent workerState={props.workerState} />
                 </div>
             );
             default : 

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-//import ApiService from '../../ApiService';
 
 function EditWorkerComponent(props) {
     const [workerState, setWorkerState] = useState({
@@ -12,10 +11,11 @@ function EditWorkerComponent(props) {
 
     useEffect(() => {
         console.log('EditComponent mounted!');
+        console.log(props);
     });
 
     const inputChange = (e) => {
-        setWorkerState({...workerState, [e.target.name]: e.target.value});
+        setWorkerState({...props.workerState, [e.target.name]: e.target.value});
     }
 
     const saveWorker = () => {
@@ -43,7 +43,8 @@ function EditWorkerComponent(props) {
         <form>
             <div>
                 <label>No:</label>
-                <input type="number" name="no" value={props.workerState.no} readOnly={true} />
+                <input type="number" name="no"  value={props.workerState.no}
+            onChange={inputChange} readOnly={true} />
             </div>
             <div>
                 <label>Name:</label>

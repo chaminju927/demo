@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import axios from 'axios';
+//import { useDispatch } from 'react-redux';
 import WorkerListComponent from './WorkerListComponent';
-import { getWorker } from './store/workerRedcuer';
+//import { getWorker } from './store/workerRedcuer';
 import { configureStore } from '@reduxjs/toolkit';
 
 function MainComponent(props) {
@@ -12,11 +13,14 @@ function MainComponent(props) {
         phone: '' ,
         searched: false
     });
+    // //액션 디스패치 로직
+    // const dispatch = useDispatch();
+    // const fetchWorker = (workerNo) => {
+    //   dispatch(getWorker(workerNo));
     
     useEffect(()=>{
         //console.log('component mounted!');
         //reloadWorkerList();
-        const dispatch = useDispatch();
     }) 
     
     const inputChange = (e) => {
@@ -25,16 +29,16 @@ function MainComponent(props) {
     
     const searchWorker = () => {
         
-        configureStore.dispatch(getWorker());
-        // const url = `worker/${workerState.no}`
-        // //console.log(url);
-        // axios.get(url)
-        //     .then(res => {
-        //         console.log(res);
-        //          setWorkerState({ ...res.data, searched:true})
+        //configureStore.dispatch(getWorker());
+        const url = `worker/${workerState.no}`
+        //console.log(url);
+        axios.get(url)
+            .then(res => {
+                console.log(res);
+                 setWorkerState({ ...res.data, searched:true})
                  
-        //     })
-        // .catch(err => console.log('searchWorker() error', err))
+            })
+        .catch(err => console.log('searchWorker() error', err))
     }
  
     if (workerState.searched) {
