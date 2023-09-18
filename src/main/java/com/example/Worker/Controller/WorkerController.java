@@ -33,7 +33,7 @@ public class WorkerController {
 		workerService.add(worker);  
 		System.out.println("success");
 	    //return "redirect:/";
-		return null;
+		return "success";
 	 }
 
 	@GetMapping("/{no}")
