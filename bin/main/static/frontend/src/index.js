@@ -9,21 +9,22 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import { addWorkerSlice } from './slice/addWorkerSlice';
 
 
-export const store = configureStore({
-  reducer : {
-    input : inputReducer,
-    get : getWorkerSlice.reducer,
-    add : addWorkerSlice.reducer
-  },
-}, composeWithDevTools()
-);
+export const store = configureStore(
+  {
+    reducer : {
+      input : inputReducer,
+      get : getWorkerSlice.reducer,
+      add : addWorkerSlice.reducer
+    }
+  }, 
+  composeWithDevTools());
 
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
-    </Provider>,
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
