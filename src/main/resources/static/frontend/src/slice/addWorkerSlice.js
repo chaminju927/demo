@@ -4,19 +4,16 @@ import axios from "axios";
 
 export const addWorker = createAsyncThunk(
     "WORKER/POST", 
-    async (data) => {
-      const header = {"Content-type":"application/json"}
-      const response = await axios.post('/worker', header, data);
+    async (inputState) => {
+     // const header = {"Content-type":"application/json"}
+      const response = await axios.post('/worker', inputState);
       console.log(response);
       return response;
 });
 
 export const addWorkerSlice = createSlice({
   name: 'POST',
-  initialState: {
-      data : '',
-      loading: false, 
-      error: null },
+  initialState: {},
   reducers: {},
   extraReducers: (builder) => {
     builder
@@ -35,3 +32,4 @@ export const addWorkerSlice = createSlice({
       });
   },
 });
+export default addWorkerSlice.reducer;

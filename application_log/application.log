@@ -9420,3 +9420,17 @@ Query is: update worker
 2023-09-18 18:19:30.175 INFO  [RMI TCP Connection(271)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] - Application shutdown requested.
 2023-09-18 18:19:30.230 INFO  [RMI TCP Connection(271)-127.0.0.1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
 2023-09-18 18:19:30.235 INFO  [RMI TCP Connection(271)-127.0.0.1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+2023-09-18 21:53:46.029 INFO  [main] [com.example.DemoApplication] - Starting DemoApplication using Java 1.8.0_332 on miindue with PID 20552 (C:\Users\minjo\git\demo\bin\main started by minjo in C:\Users\minjo\git\demo)
+2023-09-18 21:53:46.031 INFO  [main] [com.example.DemoApplication] - No active profile set, falling back to default profiles: default
+2023-09-18 21:53:47.446 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-09-18 21:53:47.456 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-18 21:53:47.457 INFO  [main] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-09-18 21:53:47.457 INFO  [main] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2023-09-18 21:53:47.684 INFO  [main] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-09-18 21:53:47.694 INFO  [main] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-09-18 21:53:47.695 INFO  [main] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 1606 ms
+2023-09-18 21:53:48.259 INFO  [main] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@72456279, org.springframework.security.web.context.SecurityContextPersistenceFilter@b835727, org.springframework.security.web.header.HeaderWriterFilter@408e96d9, org.springframework.security.web.authentication.logout.LogoutFilter@524a2ffb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2c8662ac, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@ef1695a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@53a9fcfd, org.springframework.security.web.session.SessionManagementFilter@47af099e, org.springframework.security.web.access.ExceptionTranslationFilter@37af1f93]
+2023-09-18 21:53:48.472 INFO  [main] [o.s.b.a.w.s.WelcomePageHandlerMapping] - Adding welcome page: class path resource [static/index.html]
+2023-09-18 21:53:48.585 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8080"]
+2023-09-18 21:53:48.625 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-18 21:53:48.632 INFO  [main] [com.example.DemoApplication] - Started DemoApplication in 2.984 seconds (JVM running for 3.462)

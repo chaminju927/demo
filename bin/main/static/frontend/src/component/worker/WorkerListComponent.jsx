@@ -13,37 +13,51 @@ function WorkerListComponent() {
     useEffect(()=>{
         console.log('liscomponent mounted!');
     }) 
-
     const state = useSelector((state) => state.get.data);
     console.log(state);
+    const data = useSelector((state) => state.input);
+
     const dispatch = useDispatch();
 
-    //스토어에 상태값 저장
-    const inputChange = (e) => {
-
-        dispatch(setNo());
-        dispatch(setName());
-        dispatch(setEmail());
-        dispatch(setPhone());
-    }
-
-   // 스토어에서 상태값 가져와서 data에 담고 post요청
-    const addWorker = (data) => {
+     // 스토어에 상태값 저장
+     const inputChange = (e) => {
+        const { name, value } = e.target;
+        switch (name) {
+          case 'no':
+            dispatch(setNo(value));
+            break;
+          case 'name':
+            dispatch(setName(value));
+            break;
+          case 'email':
+            dispatch(setEmail(value));
+            break;
+          case 'phone':
+            dispatch(setPhone(value));
+            break;
+          default:
+            break;
+        }
+      };
+      
+   // add버튼 클릭시
+    const addBtn = () => {
         setClickState({ clicked : 'add' });
-        dispatch(addWorker(data));
     }
     
-    const deleteWorker = () => {
+    const saveBtn = () => {
+       dispatch(addWorker(data));
+    }
+    
+    const deleteBtn = () => {
 
     }
 
-    const editWorker = () => {
+    const editBtn = () => {
         setClickState({clicked: 'edit'})
     }
 
-     const saveWorker = () => {
-        dispatch(addWorker());
-     }
+   
 
     switch(clickState.clicked){
         case 'add' :
@@ -67,7 +81,7 @@ function WorkerListComponent() {
                         <label>Phone:</label>
                         <input type="number" name="phone" onChange={inputChange} />
                     </div>
-                    <button onClick={() => saveWorker()}>save</button>
+                    <button onClick={() => saveBtn()}>save</button>
                 </form>
             </div>
             )
@@ -104,9 +118,9 @@ function WorkerListComponent() {
                             <td>{state.email}</td>
                             <td>{state.phone}</td>
                             <td>
-                                <button onClick={() => editWorker()}>edit</button>
-                                <button onClick={() => addWorker()}>add</button>  
-                                <button onClick={() => deleteWorker()}>delete</button>
+                                <button onClick={() => editBtn()}>edit</button>
+                                <button onClick={() => addBtn()}>add</button>  
+                                <button onClick={() => deleteBtn()}>delete</button>
                             </td>
                         </tr>
                     </tbody>
