@@ -24,7 +24,6 @@ function MainComponent() {
    // console.log(state);
 
     const searchWorker = () => {
-        // dispatch(setNo(no));
         dispatch(getWorker(state.input.no)); //inputSlice에 저장된 state가져와서 사용
         setClickState({ searched : true });
     }

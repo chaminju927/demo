@@ -15,16 +15,6 @@ import axios from "axios";
 //     setWorkerState({ ...res.data, searched:true});
 // })
 
-// const deleteWorker = () => { 
-//   //setWorkerState({ ...workerState, clicked : 'delete' })
-
-//   axios.delete(`/worker/${workerState.no}`)
-//   .then( res => {
-//       console.log(res.data);
-//       //reloadWorkerList();
-//   })
-//   .catch(err => console.log('delete err', err))
-// }
 
 
 

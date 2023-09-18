@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import MainComponent from './MainComponent';
 import EditWorkerComponent from './EditWorkerComponent';
 import { useDispatch, useSelector } from 'react-redux';
-//import { setNo, setName, setEmail, setPhone } from '../../slice/inputSlice';
+import { setNo, setName, setEmail, setPhone } from '../../slice/inputSlice';
+import { addWorker } from '../../slice/addWorkerSlice'
 
 function WorkerListComponent() {
     const [clickState, setClickState] = useState({
@@ -17,15 +18,19 @@ function WorkerListComponent() {
     console.log(state);
     const dispatch = useDispatch();
 
+    //스토어에 상태값 저장
     const inputChange = (e) => {
-       //console.log(e.target.value);
-       const { inputName, value} = e.target;
-       setValue({})
+
+        dispatch(setNo());
+        dispatch(setName());
+        dispatch(setEmail());
+        dispatch(setPhone());
     }
 
-   // const data = 
+   // 스토어에서 상태값 가져와서 data에 담고 post요청
     const addWorker = (data) => {
         setClickState({ clicked : 'add' });
+        dispatch(addWorker(data));
     }
     
     const deleteWorker = () => {

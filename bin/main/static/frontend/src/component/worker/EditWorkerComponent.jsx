@@ -19,22 +19,22 @@ function EditWorkerComponent(props) {
     }
 
     const saveWorker = () => {
-        const header = {"Content-type":"application/json"}
-        const data = {
-            no: workerState.no,
-            name: workerState.name,
-            email: workerState.email,
-            phone: workerState.phone
-        }
-        axios.put(`/worker/${data.no}`, data, header)
-        .then( res => {
-            console.log(res.data);
-            //setWorkerState({ res.data });
-            //props.history.push('/worker');
-        })
-        .catch( err => {
-            console.log('editWorker() 에러', err);
-        })
+        // const header = {"Content-type":"application/json"}
+        // const data = {
+        //     no: workerState.no,
+        //     name: workerState.name,
+        //     email: workerState.email,
+        //     phone: workerState.phone
+        // }
+        // axios.put(`/worker/${data.no}`, data, header)
+        // .then( res => {
+        //     console.log(res.data);
+        //     //setWorkerState({ res.data });
+        //     //props.history.push('/worker');
+        // })
+        // .catch( err => {
+        //     console.log('editWorker() 에러', err);
+        // })
     }
 
     return (
