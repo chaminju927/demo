@@ -2,22 +2,6 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 
-// export const updateWorker = createAsyncThunk("PU", async () => {
-//     const header = {"Content-type":"application/json"}
-//     const data = {
-//         no: workerState.no,
-//         name: workerState.name,
-//         email: workerState.email,
-//         phone: workerState.phone
-//     }
-//     await axios.put('/worker', header, data);
-//     console.log(res);
-//     setWorkerState({ ...res.data, searched:true});
-// })
-
-
-
-
 // 비동기 작업을 위한 액션 크리에이터
 export const getWorker = createAsyncThunk(
     'WORKER/GET', 
@@ -36,7 +20,7 @@ export const getWorkerSlice = createSlice({
       error: null 
   },
   reducers: {},
-  extraReducers: (builder) => {
+  extraReducers: (builder) => {  // 외부에서 정의된 액션크리에이터 사용시 extraReducers사용
     builder
       .addCase(getWorker.pending, (state) => {
         state.loading = true;
@@ -44,7 +28,7 @@ export const getWorkerSlice = createSlice({
       .addCase(getWorker.fulfilled, (state, action) => {
         state.loading = false;
 
-        const data = action.payload;
+        const data = action.payload;  //payload는 컴포넌트에서 인자로 보낸것
         state.data = data;
       })
       .addCase(getWorker.rejected, (state, action) => {

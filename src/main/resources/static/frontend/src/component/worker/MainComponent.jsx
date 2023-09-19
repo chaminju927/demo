@@ -7,8 +7,10 @@ import { setNo } from '../../slice/inputSlice';
 function MainComponent() {
     const [clickState, setClickState] = useState({
         searched: false
+       
     });
- 
+    const inputState = useSelector((state) => state.input);
+    const state = useSelector((state) => state.get.data);
     const dispatch = useDispatch();
 
     useEffect(()=>{
@@ -17,18 +19,14 @@ function MainComponent() {
     
     const inputChange = (e) => {
         const no = e.target.value;
-       // console.log(no);
         dispatch(setNo(no));
     }
-    const state = useSelector(state => state);
-   // console.log(state);
 
-    const searchWorker = () => {
-        dispatch(getWorker(state.input.no)); //inputSlice에 저장된 state가져와서 사용
-        setClickState({ searched : true });
+    const searchBtn = () => {
+        dispatch(getWorker(inputState.no)); //inputSlice에 저장된 state가져와서 사용
+        setClickState({ searched : true }); 
     }
    
-
     if (clickState.searched) {
         return (
             <div>
@@ -40,7 +38,7 @@ function MainComponent() {
             <div>
                 <h2>Worker</h2>
                 <input type="number" placeholder="사번 입력" onChange={inputChange}  />
-                <button onClick={() =>searchWorker()}>search</button>
+                <button onClick={() =>searchBtn()}>search</button>
             </div>
         );
     }

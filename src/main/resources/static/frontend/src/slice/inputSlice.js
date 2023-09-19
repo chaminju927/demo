@@ -26,10 +26,22 @@ const initialState = {
             setPhone(state, action){
                 const phone = action.payload;
                 state.phone = phone;
+            },
+            resetNo(state, action){
+                state.no = action.payload;
+                //state.no = '';
+            },
+            resetName(state, action){
+                state.name = action.payload;
+            },
+            resetEmail(state, action){
+                state.email = action.payload;
+            },
+            resetPhone(state, action){
+                state.phone = action.payload;
             }
-            
      }
   });
-  export const { setNo, setName, setEmail, setPhone } = inputSlice.actions;  //액션타입은 WORKERS/setNo
+  export const { setNo, setName, setEmail, setPhone, resetNo, resetName, resetEmail, resetPhone } = inputSlice.actions;  //액션타입은 WORKERS/setNo
   export default inputSlice.reducer;
   

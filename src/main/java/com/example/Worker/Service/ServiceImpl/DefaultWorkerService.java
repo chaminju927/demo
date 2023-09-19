@@ -1,9 +1,10 @@
 package com.example.Worker.Service.ServiceImpl;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.example.Worker.Dao.WorkerDao;
 import com.example.Worker.Service.WorkerService;
@@ -19,11 +20,11 @@ public class DefaultWorkerService implements WorkerService {
 		return workerDao.getWorker(no);
 	}
 	
-//	@Override
-//	public String get(int no) {
-//		return workerDao.getWorker(no);
-//	}
-
+	@Override
+	public List<Worker> getAll() {
+		return workerDao.getAllWorker();
+	}
+	
 	  @Override
 	  public void add(Worker worker) {
 	    workerDao.insert(worker);
@@ -36,10 +37,11 @@ public class DefaultWorkerService implements WorkerService {
 	}
 
 	@Override
-	public Worker update(Worker worker) {
+	public void update(Worker worker) {
 		workerDao.update(worker);
-		return worker;	
+		//return worker;	
 	}
+
 	
 	
 

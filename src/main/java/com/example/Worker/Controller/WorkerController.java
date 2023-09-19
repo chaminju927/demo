@@ -19,7 +19,6 @@ import com.example.Worker.Vo.Worker;
 @CrossOrigin(origins = "http://localhost:3000")
 //@CrossOrigin
 public class WorkerController {
-	
 	//private final Logger logger = LoggerFactory.getLogger("LoggerController의 로그");
 	@Autowired private WorkerService workerService;	
 	
@@ -29,29 +28,33 @@ public class WorkerController {
 //    }
 	
 	@PostMapping
-	  public String insert(@RequestBody Worker worker) {
+	  public void insert(@RequestBody Worker worker) {
 		workerService.add(worker);  
-		System.out.println("success");
+		//System.out.println("success");
 	    //return "redirect:/";
-		return "success";
 	 }
 
 	@GetMapping("/{no}")
 	public Worker list(@PathVariable("no") int no) {
-		System.out.println(no);
+		//System.out.println(no);
 		return workerService.get(no);
 	}
+	
+	@GetMapping
+	public Object listAll() {
+		//System.out.println(no);
+		return workerService.getAll();
+	}
 
-	@PutMapping("/{no}")
-	public Worker update(@RequestBody Worker worker) {
-		System.out.println(worker);
+	@PutMapping("/update")
+	public void update(@RequestBody Worker worker) {
 		workerService.update(worker);
-		return worker;
+		//return worker;
 	}
 
 	  @DeleteMapping("/{no}")
 	  public String delete(@PathVariable int no) {
-	    System.out.println("삭제번호 : " + no);
+	    System.out.println("삭제 번호 : " + no);
 	    workerService.delete(no);
 	    return "deleted Successfully";
 	    //return null;

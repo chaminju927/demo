@@ -2,22 +2,30 @@ import React, { useEffect, useState } from 'react';
 import MainComponent from './MainComponent';
 import EditWorkerComponent from './EditWorkerComponent';
 import { useDispatch, useSelector } from 'react-redux';
-import { setNo, setName, setEmail, setPhone } from '../../slice/inputSlice';
+import { setNo, setName, setEmail, setPhone, resetNo, resetName, resetEmail, resetPhone } from '../../slice/inputSlice';
 import { addWorker } from '../../slice/addWorkerSlice'
+import { deleteWorker } from '../../slice/deleteWorkerSlice';
+//import { getWorker } from '../../slice/getWorkerSlice'
 
 function WorkerListComponent() {
     const [clickState, setClickState] = useState({
         clicked : ''
     });
 
-    useEffect(()=>{
-        console.log('liscomponent mounted!');
-    }) 
     const state = useSelector((state) => state.get.data);
-    console.log(state);
-    const data = useSelector((state) => state.input);
-
+    //console.log(state);
+    const inputState = useSelector((state) => state.input);
     const dispatch = useDispatch();
+    
+    useEffect(()=>{
+        //console.log('liscomponent mounted!');
+        //dispatch(getWorker(inputState.no));
+
+        //state를 iputstate으로 복사
+        // dispatch(setName(state.name));
+        // dispatch(setEmail(state.email));
+        // dispatch(setPhone(state.phone));
+    });
 
      // 스토어에 상태값 저장
      const inputChange = (e) => {
@@ -39,27 +47,32 @@ function WorkerListComponent() {
             break;
         }
       };
-      
-   // add버튼 클릭시
-    const addBtn = () => {
-        setClickState({ clicked : 'add' });
-    }
     
+    //post 요청
     const saveBtn = () => {
-       dispatch(addWorker(data));
+       setClickState({ clicked : 'info' });
+       dispatch(addWorker(inputState));
     }
-    
+    //delete 요청
     const deleteBtn = () => {
-
+        dispatch(setNo(''));
+        
+        dispatch(deleteWorker(state.no));
+        setClickState({ clicked : 'info' });
     }
-
+    // Add worker 렌더링
+    const addBtn = () => {
+        setClickState({ clicked: 'add' });
+    }
     const editBtn = () => {
-        setClickState({clicked: 'edit'})
+        setClickState({ clicked : 'edit'});   
     }
-
-   
+    const searchBtn = () => {
+        setClickState({ clicked: 'search' })
+    }
 
     switch(clickState.clicked){
+       
         case 'add' :
             return (
                 <div>
@@ -71,7 +84,7 @@ function WorkerListComponent() {
                     </div>
                     <div>
                         <label>Name:</label>
-                        <input type="text" name="name"  onChange={inputChange} />
+                        <input type="text" name="name" onChange={inputChange} />
                     </div>
                     <div>
                         <label>Email:</label>
@@ -85,7 +98,7 @@ function WorkerListComponent() {
                 </form>
             </div>
             )
-        case 'delete' :
+        case 'search' :
             return (
                 <div>
                     <MainComponent />
@@ -97,38 +110,68 @@ function WorkerListComponent() {
                     <EditWorkerComponent />
                 </div>
             );
-        default : 
-                
-            return (
-            <div>
-                <h2>Worker</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>no</th>
-                            <th>name</th>
-                            <th>email</th>
-                            <th>phone</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{state.no}</td>
-                            <td>{state.name}</td>
-                            <td>{state.email}</td>
-                            <td>{state.phone}</td>
-                            <td>
-                                <button onClick={() => editBtn()}>edit</button>
-                                <button onClick={() => addBtn()}>add</button>  
-                                <button onClick={() => deleteBtn()}>delete</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        );
+        case 'info' :
+                return (     // post delete put요청 처리후 렌더링 
+                    <div>
+                        <h2>Worker Info</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>no</th>
+                                    <th>name</th>
+                                    <th>email</th>
+                                    <th>phone</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{inputState.no}</td>
+                                    <td>{inputState.name}</td>
+                                    <td>{inputState.email}</td>
+                                    <td>{inputState.phone}</td>
+                                    <td> 
+                                        <button onClick={() => editBtn()} >edit</button>
+                                        <button onClick={() => deleteBtn()} >delete</button>
+                                    </td> 
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button onClick={() => searchBtn()}>search</button> 
+                        <button onClick={() => addBtn()}>add</button> 
+                    </div>
+                ); 
+         default:  // main에서 렌더링되는 부분
+            return (   
+                <div>
+                    <h2>Worker</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>no</th>
+                                <th>name</th>
+                                <th>email</th>
+                                <th>phone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{state.no}</td>
+                                <td>{state.name}</td>
+                                <td>{state.email}</td>
+                                <td>{state.phone}</td>
+                                <td>
+                                    <button onClick={() => editBtn()}>edit</button>
+                                    <button onClick={() => deleteBtn()}>delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button onClick={() => searchBtn()}>search</button>
+                    <button onClick={() => addBtn()}>add</button> 
+                </div>
+                );
+           
     }
-
 }
-    
+
 export default WorkerListComponent;

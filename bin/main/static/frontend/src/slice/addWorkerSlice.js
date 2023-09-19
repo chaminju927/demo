@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-
 export const addWorker = createAsyncThunk(
     "WORKER/POST", 
     async (inputState) => {

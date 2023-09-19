@@ -21,16 +21,21 @@
     where no=#{no};
   </select>
   
+ <select id="getAllWorker"  resultType="com.example.Worker.Vo.Worker">
+    select 
+    no, name, email, phone
+    from worker;
+  </select>
+  
   <delete id="delete" parameterType="int">
-	  delete 
-	  from worker 
+	  delete
+	  from worker
 	  where no = #{no};
   </delete>
   
   <update id="update" parameterType="com.example.Worker.Vo.Worker">
 	  update worker
-	  set 
-	  (no=#{no}, name=#{name}, phone=#{phone}, email=#{email})
+	  set name = #{name}, phone = #{phone}, email = #{email}
 	  where no = #{no};
   </update>
 </mapper>

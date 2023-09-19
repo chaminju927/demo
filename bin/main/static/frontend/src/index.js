@@ -7,6 +7,8 @@ import{ getWorkerSlice } from "./slice/getWorkerSlice";
 import { configureStore } from "@reduxjs/toolkit";
 import {composeWithDevTools} from 'redux-devtools-extension';
 import { addWorkerSlice } from './slice/addWorkerSlice';
+import deleteWorkerSlice from './slice/deleteWorkerSlice';
+import editWorkerSlice from './slice/editWorkerSlice';
 
 
 export const store = configureStore(
@@ -14,7 +16,9 @@ export const store = configureStore(
     reducer : {
       input : inputReducer,
       get : getWorkerSlice.reducer,
-      add : addWorkerSlice.reducer
+      add : addWorkerSlice.reducer,
+      delete : deleteWorkerSlice.reducer,
+      put : editWorkerSlice.reducer
     }
   }, 
   composeWithDevTools());
