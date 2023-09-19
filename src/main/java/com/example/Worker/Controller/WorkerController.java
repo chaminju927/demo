@@ -41,7 +41,7 @@ public class WorkerController {
 	}
 	
 	@GetMapping
-	public Object listAll() {
+	public Object list() {
 		//System.out.println(no);
 		return workerService.getAll();
 	}

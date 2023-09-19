@@ -50,15 +50,14 @@ function WorkerListComponent() {
     
     //post 요청
     const saveBtn = () => {
-       setClickState({ clicked : 'info' });
+       setClickState({ clicked : 'saved' });
        dispatch(addWorker(inputState));
     }
     //delete 요청
     const deleteBtn = () => {
+        setClickState({ clicked: 'delete' });
         dispatch(setNo(''));
-        
         dispatch(deleteWorker(state.no));
-        setClickState({ clicked : 'info' });
     }
     // Add worker 렌더링
     const addBtn = () => {
@@ -72,7 +71,6 @@ function WorkerListComponent() {
     }
 
     switch(clickState.clicked){
-       
         case 'add' :
             return (
                 <div>
@@ -110,40 +108,52 @@ function WorkerListComponent() {
                     <EditWorkerComponent />
                 </div>
             );
-        case 'info' :
-                return (     // post delete put요청 처리후 렌더링 
-                    <div>
-                        <h2>Worker Info</h2>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>no</th>
-                                    <th>name</th>
-                                    <th>email</th>
-                                    <th>phone</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{inputState.no}</td>
-                                    <td>{inputState.name}</td>
-                                    <td>{inputState.email}</td>
-                                    <td>{inputState.phone}</td>
-                                    <td> 
-                                        <button onClick={() => editBtn()} >edit</button>
-                                        <button onClick={() => deleteBtn()} >delete</button>
-                                    </td> 
-                                </tr>
-                            </tbody>
-                        </table>
-                        <button onClick={() => searchBtn()}>search</button> 
-                        <button onClick={() => addBtn()}>add</button> 
-                    </div>
-                ); 
+        case 'delete' :
+            return (
+                <div>
+                    <MainComponent />
+                </div>
+            );
+        case 'saved' :
+            return (
+                <div>
+                    <MainComponent />
+                </div>
+            );
+        // case 'info' :
+        //         return (     // post delete put요청 처리후 렌더링 
+        //             <div>
+        //                 <h2>Worker Info</h2>
+        //                 <table>
+        //                     <thead>
+        //                         <tr>
+        //                             <th>no</th>
+        //                             <th>name</th>
+        //                             <th>email</th>
+        //                             <th>phone</th>
+        //                         </tr>
+        //                     </thead>
+        //                     <tbody>
+        //                         <tr>
+        //                             <td>{inputState.no}</td>
+        //                             <td>{inputState.name}</td>
+        //                             <td>{inputState.email}</td>
+        //                             <td>{inputState.phone}</td>
+        //                             <td> 
+        //                                 <button onClick={() => editBtn()} >edit</button>
+        //                                 <button onClick={() => deleteBtn()} >delete</button>
+        //                             </td> 
+        //                         </tr>
+        //                     </tbody>
+        //                 </table>
+        //                 <button onClick={() => searchBtn()}>search</button> 
+        //                 <button onClick={() => addBtn()}>add</button> 
+        //             </div>
+        //         ); 
          default:  // main에서 렌더링되는 부분
             return (   
                 <div>
-                    <h2>Worker</h2>
+                    <h2>Worker Info</h2>
                     <table>
                         <thead>
                             <tr>
