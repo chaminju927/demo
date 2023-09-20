@@ -2,27 +2,15 @@ import React from 'react';
 import * as ReactDOM from 'react-dom';
 import App from './App';
 import { Provider } from 'react-redux';
-import inputReducer from './slice/inputSlice';
-import{ getWorkerSlice } from "./slice/getWorkerSlice";
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from '@reduxjs/toolkit';
 import {composeWithDevTools} from 'redux-devtools-extension';
-import { addWorkerSlice } from './slice/addWorkerSlice';
-import deleteWorkerSlice from './slice/deleteWorkerSlice';
-import editWorkerSlice from './slice/editWorkerSlice';
+import apiReducer from './slice/apiReducer';
 
 
 export const store = configureStore(
-  {
-    reducer : {
-      input : inputReducer,
-      get : getWorkerSlice.reducer,
-      add : addWorkerSlice.reducer,
-      delete : deleteWorkerSlice.reducer,
-      put : editWorkerSlice.reducer
-    }
-  }, 
-  composeWithDevTools());
-
+    { reducer : apiReducer }, 
+    composeWithDevTools()
+);
 
 ReactDOM.render(
   <React.StrictMode>
