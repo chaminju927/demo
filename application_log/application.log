@@ -12090,3 +12090,6 @@ Query is: insert into worker(no, name, email, phone)
 2023-09-20 16:01:01.331 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
 2023-09-20 16:01:04.126 INFO  [http-nio-8080-exec-2] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
 2023-09-20 16:01:04.223 INFO  [http-nio-8080-exec-2] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2023-09-20 18:31:16.513 INFO  [RMI TCP Connection(159)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] - Application shutdown requested.
+2023-09-20 18:31:16.572 INFO  [RMI TCP Connection(159)-127.0.0.1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2023-09-20 18:31:16.576 INFO  [RMI TCP Connection(159)-127.0.0.1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
