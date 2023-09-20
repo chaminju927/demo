@@ -59,7 +59,7 @@ function MainComponent() {
     const deleteBtn = () => {
         setMainState({ ...mainState, no : data.no }); //리덕스 스토어 no를 usestate에 저장
         dispatch(deleteWorker(mainState.no));
-        //삭제후 main버튼누를때 데이터 지원지도록 수정!!
+        //삭제후 main버튼누를때 데이터 지워지도록 수정!!
     }
 
     const mainBtn = () => {
@@ -69,35 +69,28 @@ function MainComponent() {
        setMainState({ ...mainState, clicked: 'edit'});
     }
 
-    //add worker
-    const saveBtn = () => {  
-        setMainState({ ...mainState, clicked: ''});
-        dispatch(addWorker(mainState));
-    }
+    // //add worker
+    // const saveBtn = () => {  
+    //     setMainState({ ...mainState, clicked: ''});
+    //     dispatch(addWorker(mainState));
+    // }
+    // saveBtn 함수 수정
+const saveBtn = () => {
+    setMainState({ ...mainState, clicked: '' });
 
-     const addChange = (e) => {
-        setMainState({ ...mainState, [e.target.name] : e.target.name });
-       //console.log({mainState});
-        // const name = e.target;
-        // const value = e.target.value;
-        // switch (name) {
-        //   case 'no':
-        //     setMainState({ ...mainState, no : value });
-        //     console.log(mainState);
-        //     break;
-        //   case 'name':
-        //     setMainState({ ...mainState, name : value });
-        //     break;
-        //   case 'email':
-        //     setMainState({ ...mainState, email : value });
-        //     break;
-        //   case 'phone':
-        //     setMainState({ ...mainState, phone : value });
-        //     break;
-        //   default:
-        //     break;
-        // }
-      };
+    // 새로운 데이터를 Redux 스토어에 추가
+    dispatch(addWorker(mainState))
+      .then(() => {
+        // 새로운 데이터를 추가한 후 Redux 스토어에서 데이터를 다시 가져옴
+        dispatch(getWorker(mainState.no));
+      });
+};
+
+
+    const addChange = (e) => {
+        setMainState({ ...mainState, [e.target.name]: e.target.value });
+    };
+    
 
 
    switch(mainState.clicked){
@@ -166,7 +159,7 @@ function MainComponent() {
             return (
                 <div>
                     <h2>Search</h2>
-                    <input type="number" name="no" placeholder="사번 입력" onChange={() => inputNoChange()} value={mainState.no}  />
+                    <input type="number" name="no" placeholder="사번 입력" onChange={inputNoChange} value={mainState.no}  />
                     <button onClick={() =>searchBtn()}>search</button>
                     <button onClick={() => addBtn()}>add</button> 
 
