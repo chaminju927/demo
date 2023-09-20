@@ -38,7 +38,7 @@ function MainComponent() {
 
     
     const inputNoChange = (e) => {
-        setMainState({ ...mainState, no : e.target.value });
+        setMainState({ ...mainState, [e.target.name] : e.target.value });
       //  const inputNo = e.target.value;
         //console.log(inputNo);
      //   setMainState({ no : inputNo });

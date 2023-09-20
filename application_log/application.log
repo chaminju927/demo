@@ -12071,3 +12071,22 @@ Query is: insert into worker(no, name, email, phone)
 2023-09-20 16:00:06.004 INFO  [RMI TCP Connection(185)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] - Application shutdown requested.
 2023-09-20 16:00:06.066 INFO  [RMI TCP Connection(185)-127.0.0.1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
 2023-09-20 16:00:06.071 INFO  [RMI TCP Connection(185)-127.0.0.1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+2023-09-20 16:00:15.465 INFO  [main] [com.example.DemoApplication] - Starting DemoApplication using Java 1.8.0_20 on DESKTOP-42OAV3A with PID 8592 (C:\Users\JNESS\git\demo\bin\main started by 20230901 in C:\Users\JNESS\git\demo)
+2023-09-20 16:00:15.467 INFO  [main] [com.example.DemoApplication] - No active profile set, falling back to default profiles: default
+2023-09-20 16:00:16.293 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-09-20 16:00:16.301 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-20 16:00:16.301 INFO  [main] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-09-20 16:00:16.302 INFO  [main] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2023-09-20 16:00:16.464 INFO  [main] [org.apache.jasper.servlet.TldScanner] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-09-20 16:00:16.469 INFO  [main] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-09-20 16:00:16.469 INFO  [main] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 962 ms
+2023-09-20 16:00:16.832 INFO  [main] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4cfa8227, org.springframework.security.web.context.SecurityContextPersistenceFilter@36c0d0bd, org.springframework.security.web.header.HeaderWriterFilter@16c587de, org.springframework.security.web.authentication.logout.LogoutFilter@5f117b3d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@688d411b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@295bf2a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@78226c36, org.springframework.security.web.session.SessionManagementFilter@2042ccce, org.springframework.security.web.access.ExceptionTranslationFilter@7569ea63]
+2023-09-20 16:00:16.972 INFO  [main] [o.s.b.a.w.s.WelcomePageHandlerMapping] - Adding welcome page: class path resource [static/index.html]
+2023-09-20 16:00:17.079 INFO  [main] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8080"]
+2023-09-20 16:00:17.099 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-20 16:00:17.108 INFO  [main] [com.example.DemoApplication] - Started DemoApplication in 1.935 seconds (JVM running for 2.505)
+2023-09-20 16:01:01.330 INFO  [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-20 16:01:01.330 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-09-20 16:01:01.331 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
+2023-09-20 16:01:04.126 INFO  [http-nio-8080-exec-2] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2023-09-20 16:01:04.223 INFO  [http-nio-8080-exec-2] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
