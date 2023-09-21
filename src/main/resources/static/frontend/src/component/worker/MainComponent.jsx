@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getWorker, deleteWorker, addWorker } from '../../slice/apiReducer';
+import { getWorker, deleteWorker, addWorker } from '../../reducer/apiReducer';
 import axios from 'axios';
 import EditWorkerComponent from './EditWorkerComponent';
 
@@ -15,7 +15,6 @@ function MainComponent() {
         clicked: ''
     });
     useEffect(() => {  
-        //setMainState({ ...mainState, no : 3 }); 
         axios.get('/worker')  //메인 리스트 가져오기
           .then((response) => {
             setWorkerData(response.data);
@@ -24,18 +23,16 @@ function MainComponent() {
           .catch((error) => {
             console.error('실패:', error);
           });
-      },[]);
+      },[ workerData ]);  // workerData값에 의존성 추가
 
     //search이후 설정
-    const {data} = useSelector((state) => {  //비구조화 할당
+    const {data} = useSelector((state) => {
         return {
             data: state.reducer.data
         };
     });
-    //const data = useSelector((state) => state.reducer.data);
-    //console.log(data.no);
+  
     const dispatch = useDispatch();
-
     
     const inputNoChange = (e) => {
         setMainState({ ...mainState, [e.target.name] : e.target.value });
@@ -51,47 +48,41 @@ function MainComponent() {
         setMainState({ ...mainState, clicked: 'search'});
     }
 
+    //add worker 리턴
     const addBtn = () => {
-        //setMainState({ ...mainState });
         setMainState({ ...mainState, clicked: 'add'});
     }
     //delete 요청
     const deleteBtn = () => {
-        setMainState({ ...mainState, no : data.no }); //리덕스 스토어 no를 usestate에 저장
+        setMainState({ ...mainState, no : data.no }); 
         dispatch(deleteWorker(mainState.no));
-        //삭제후 main버튼누를때 데이터 지워지도록 수정!!
+        setMainState({ no: '', name: '', phone: '', email: '', clicked: '' });
     }
 
     const mainBtn = () => {
-        setMainState({ ...mainState, clicked: ''}); 
+        setMainState({ no: '', name: '', phone: '', email: '', clicked: ''}); 
     }
+
     const editBtn = () => {
-       setMainState({ ...mainState, clicked: 'edit'});
+       setMainState({ no: data.no, name: data.name, phone: data.phone, email: data.email, clicked: 'edit'});
+       //console.log({mainState});
     }
 
-    // //add worker
-    // const saveBtn = () => {  
-    //     setMainState({ ...mainState, clicked: ''});
-    //     dispatch(addWorker(mainState));
-    // }
-    // saveBtn 함수 수정
-const saveBtn = () => {
-    setMainState({ ...mainState, clicked: '' });
-
-    // 새로운 데이터를 Redux 스토어에 추가
-    dispatch(addWorker(mainState))
-      .then(() => {
-        // 새로운 데이터를 추가한 후 Redux 스토어에서 데이터를 다시 가져옴
-        dispatch(getWorker(mainState.no));
-      });
-};
-
+    // post요청
+    const saveBtn = () => {
+        setMainState({ ...mainState, clicked: '' });
+        dispatch(addWorker(mainState))
+        .then(() => {
+            // input값 초기화 -> 메인에서 인풋값 공란으로
+           setMainState({ no: '', name: '', phone: '', email: '', clicked: '' })
+        });
+    };
 
     const addChange = (e) => {
         setMainState({ ...mainState, [e.target.name]: e.target.value });
+        //console.log({mainState});
     };
     
-
 
    switch(mainState.clicked){
         case 'search' :  //search 결과

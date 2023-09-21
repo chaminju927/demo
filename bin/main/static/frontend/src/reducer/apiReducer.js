@@ -4,17 +4,15 @@ import axios from "axios";
 
 export const addWorker = createAsyncThunk(
   "WORKER/POST", 
-  async (mainState) => {
-    const response = await axios.post('/worker', mainState);
-    console.log(response);
-    return response;
+    async (mainState) => {
+      const response = await axios.post('/worker', mainState);
+      return response;
 });
 
 export const getWorker = createAsyncThunk(
     'WORKER/GET', 
     async (no) => {
         const response = await axios.get(`/worker/${no}`);
-        //console.log(response);
         return response.data;
 });
 
@@ -29,9 +27,9 @@ export const deleteWorker = createAsyncThunk (
 
 export const editWorker = createAsyncThunk(
   "WORKER/PUT", 
-  async (inputState) => {
-  const response = await axios.put('/worker/update', inputState);
-  return response;
+  async (editState) => {
+    const response = await axios.put('/worker/update', editState);
+    return response;
 });
 
 
@@ -69,16 +67,13 @@ export const apiReducer = createSlice({
       .addCase(deleteWorker.fulfilled, (state, action) => {
         state.loading = false;
         state.data = {};
-        const deletedNo = action.payload.no; // 삭제된 데이터의 번호
-
-        // workerData 배열을 초기화하거나 현재 state.workerData가 배열인지 확인한 후 수정
-        if (Array.isArray(state.workerData)) {
-          state.workerData = state.workerData.filter(worker => worker.no !== deletedNo);
-        }
       })
       .addCase(deleteWorker.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
+      })
+      .addCase(editWorker.pending, (state) => {
+        state.loading = true;
       })
       .addCase(editWorker.fulfilled, (state, action) => {
         state.loading = false;

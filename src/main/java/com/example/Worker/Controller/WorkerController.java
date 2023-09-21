@@ -48,6 +48,7 @@ public class WorkerController {
 
 	@PutMapping("/update")
 	public void update(@RequestBody Worker worker) {
+		System.out.println("update요청: " + worker.getName()+ worker.getEmail()+ worker.getPhone());
 		workerService.update(worker);
 		//return worker;
 	}

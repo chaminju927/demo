@@ -34,8 +34,8 @@
   </delete>
   
   <update id="update" parameterType="com.example.Worker.Vo.Worker">
-	  update worker
-	  set name = #{name}, phone = #{phone}, email = #{email}
+	  update worker set
+	  name = #{name}, phone = #{phone}, email = #{email}
 	  where no = #{no};
   </update>
 </mapper>

@@ -4,7 +4,7 @@ import App from './App';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import {composeWithDevTools} from 'redux-devtools-extension';
-import apiReducer from './slice/apiReducer';
+import apiReducer from './reducer/apiReducer';
 
 
 export const store = configureStore(

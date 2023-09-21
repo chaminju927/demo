@@ -1,45 +1,43 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { editWorker } from '../../slice/apiReducer';
+import { editWorker } from '../../reducer/apiReducer';
 import MainComponent from './MainComponent';
-//import { useNavigate } from 'react-router-dom';
 
 function EditWorkerComponent(props) {
-    const [mainState, setMainState] = useState({
-        no: props.no,
-        name: props.name,
-        phone: props.phone,
-        email: props.email
+    const [editState, setEditState] = useState({
+        no: props.mainState.no,
+        name: props.mainState.name,
+        phone: props.mainState.phone,
+        email: props.mainState.email
     });
-
-    console.log(props);
     const dispatch = useDispatch();
-    const {data} = useSelector((state) => {  //비구조화 할당
+    const {data} = useSelector((state) => { 
         return {
             data: state.reducer.data
         };
     });
    
     useEffect(() => {
-       console.log('EditComponent mounted!');
-    }, []);
+        // console.log(props);
+        // console.log(data);
+       //console.log('EditComponent mounted!');
+    }, [editState]);
 
-    const nameChange = (e) => {
-        setMainState({ ...mainState, [e.target.name] : e.target.value });
-    }
-    const emailChange = (e) => {
-
-    }
-    const phoneChange = (e) => {
+    const editChange = (e) => {
+        // console.log({editState});
+        setEditState({ ...editState, [e.target.name]: e.target.value });
+        //console.log({editState});
 
     }
 
     // put 요청
     const saveBtn = () => {
-        dispatch(editWorker(mainState.no));
-        return(
-            < MainComponent />
-        );
+        dispatch(editWorker(editState))
+        .then(() => {
+           return(
+               < MainComponent />
+           );
+        });
     }
     return (
         <div>
@@ -47,19 +45,19 @@ function EditWorkerComponent(props) {
             <form>
                 <div>
                     <label>No:</label>
-                    <input type="number" name="no" value={data.no}  />
+                    <input type="number" name="no" value={data.no} readOnly={true} />
                 </div>
                 <div>
                     <label>Name:</label>
-                    <input type="text" name="name" defaultValue={data.name} onChange={nameChange}  />
+                    <input type="text" name="name" defaultValue={data.name} onChange={editChange}  />
                 </div>
                 <div>
                     <label>Email:</label>
-                    <input type="text" name="email" defaultValue={data.email} onChange={emailChange} />
+                    <input type="text" name="email" defaultValue={data.email} onChange={editChange} />
                 </div>
                 <div>
                     <label>Phone:</label>
-                    <input type="number" name="phone" defaultValue={data.phone}  onChange={phoneChange} />
+                    <input type="number" name="phone" defaultValue={data.phone}  onChange={editChange} />
                 </div>
                 <button onClick={() => saveBtn()}>save</button>
             </form>
