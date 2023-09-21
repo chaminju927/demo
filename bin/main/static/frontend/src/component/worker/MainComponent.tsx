@@ -6,14 +6,16 @@ import EditWorkerComponent from './EditWorkerComponent';
 
 
 function MainComponent() {
-    const [workerData, setWorkerData] = useState([]); //메인 리스트
-    const [mainState, setMainState] = useState({
-        no: '',
-        name: '',
-        phone: '',
-        email: '',
-        clicked: ''
-    });
+    type Worker = {
+        no: number;
+        name: string;
+        phone: number;
+        email: string;
+        clicked: string;
+    }
+    const [workerData, setWorkerData] = useState<Worker[]>([]); //메인 리스트
+    const [mainState, setMainState] = useState<Worker[]>([]);
+    
     useEffect(() => {  
         axios.get('/worker')  //메인 리스트 가져오기
           .then((response) => {
@@ -34,7 +36,7 @@ function MainComponent() {
   
     const dispatch = useDispatch();
     
-    const inputNoChange = (e) => {
+    const inputNoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setMainState({ ...mainState, [e.target.name] : e.target.value });
       //  const inputNo = e.target.value;
         //console.log(inputNo);
@@ -43,7 +45,7 @@ function MainComponent() {
     }
     //search worker
     const searchBtn = () => {
-        console.log(mainState.no);
+        console.log(mainState:Worker);
         dispatch(getWorker(mainState.no)); 
         setMainState({ ...mainState, clicked: 'search'});
     }
@@ -70,6 +72,7 @@ function MainComponent() {
 
     // post요청
     const saveBtn = () => {
+
         setMainState({ ...mainState, clicked: '' });
         dispatch(addWorker(mainState))
         .then(() => {
@@ -78,9 +81,9 @@ function MainComponent() {
         });
     };
 
-    const addChange = (e) => {
+    const addChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setMainState({ ...mainState, [e.target.name]: e.target.value });
-        //console.log({mainState});
+       
     };
     
 

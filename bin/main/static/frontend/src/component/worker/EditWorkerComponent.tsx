@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { editWorker } from '../../reducer/apiReducer';
 import MainComponent from './MainComponent';
 
-function EditWorkerComponent(props) {
+function EditWorkerComponent(props) {  
     const [editState, setEditState] = useState({
         no: props.mainState.no,
         name: props.mainState.name,
         phone: props.mainState.phone,
         email: props.mainState.email
     });
+
     const dispatch = useDispatch();
     const {data} = useSelector((state) => { 
         return {
