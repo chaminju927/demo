@@ -8,7 +8,7 @@ interface workerType {
   }
   interface result{
     loading: boolean;
-    error: null;
+    error: string;
     data: workerType[];
   }
   
