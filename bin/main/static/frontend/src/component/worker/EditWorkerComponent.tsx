@@ -1,30 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { editWorker } from '../../reducer/apiReducer';
-import MainComponent from './MainComponent';
+import MainComponent, { dataType } from './MainComponent';
+import { RootState, AppDispatch } from 'src/store';
 
-function EditWorkerComponent(props) {  
+
+function EditWorkerComponent(Info: dataType) : JSX.Element {  
+    const {no, name, email, phone} = Info;
+
     const [editState, setEditState] = useState({
-        no: props.mainState.no,
-        name: props.mainState.name,
-        phone: props.mainState.phone,
-        email: props.mainState.email
+        no: no,
+        name: name,
+        phone: phone,
+        email: email
     });
 
-    const dispatch = useDispatch();
-    const {data} = useSelector((state) => { 
+    const dispatch: AppDispatch = useDispatch();
+    const {data} = useSelector((state: RootState) => { 
         return {
-            data: state.reducer.data
+            //data: state.reducer.data //스토어에서 다시 확인
+            data: state.data
         };
     });
    
     useEffect(() => {
         // console.log(props);
         // console.log(data);
-       //console.log('EditComponent mounted!');
     }, [editState]);
 
-    const editChange = (e) => {
+    const editChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         // console.log({editState});
         setEditState({ ...editState, [e.target.name]: e.target.value });
         //console.log({editState});

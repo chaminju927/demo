@@ -1,53 +1,43 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getWorker, deleteWorker, addWorker } from '../../reducer/apiReducer';
+import { getWorker, deleteWorker, addWorker, workerType } from '../../reducer/apiReducer';
 import axios from 'axios';
 import EditWorkerComponent from './EditWorkerComponent';
+import { RootState, AppDispatch } from 'src/store';
 
 
-function MainComponent() {
-    type Worker = {
-        no: number;
-        name: string;
-        phone: number;
-        email: string;
-        clicked: string;
-    }
-    const [workerData, setWorkerData] = useState<Worker[]>([]); //메인 리스트
-    const [mainState, setMainState] = useState<Worker[]>([]);
+
+function MainComponent(): JSX.Element {
+    const [workerData, setWorkerData] = useState<dataType[]>([]); 
+    const [mainState, setMainState] = useState<newType[]>([]);
     
-    useEffect(() => {  
-        axios.get('/worker')  //메인 리스트 가져오기
-          .then((response) => {
-            setWorkerData(response.data);
-            //console.log(response);
-          })
-          .catch((error) => {
-            console.error('실패:', error);
-          });
+
+ 
+    useEffect(() => { 
+        async (): Promise<dataType> => {
+            const result = await axios.get<dataType>('/worker');
+            return result.data;
+        }
       },[ workerData ]);  // workerData값에 의존성 추가
 
     //search이후 설정
-    const {data} = useSelector((state) => {
+    const {data} = useSelector((state : RootState) => {
         return {
-            data: state.reducer.data
+            data: state.data
         };
     });
-  
-    const dispatch = useDispatch();
+    //const data = useSelector((state: RootState) => state.reducer.data);
+    const dispatch: AppDispatch = useDispatch();
     
     const inputNoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setMainState({ ...mainState, [e.target.name] : e.target.value });
-      //  const inputNo = e.target.value;
-        //console.log(inputNo);
-     //   setMainState({ no : inputNo });
-        console.log({mainState});
+        //console.log({mainState});
     }
     //search worker
     const searchBtn = () => {
-        console.log(mainState:Worker);
-        dispatch(getWorker(mainState.no)); 
-        setMainState({ ...mainState, clicked: 'search'});
+        //console.log(mainState);
+       // dispatch(getWorker(mainState.no)); 파라미터 수정
+        setMainState({ ...mainState, clicked : 'search' });
     }
 
     //add worker 리턴
@@ -57,7 +47,7 @@ function MainComponent() {
     //delete 요청
     const deleteBtn = () => {
         setMainState({ ...mainState, no : data.no }); 
-        dispatch(deleteWorker(mainState.no));
+        dispatch(deleteWorker(mainState.no)); //파라미터 수정
         setMainState({ no: '', name: '', phone: '', email: '', clicked: '' });
     }
 
@@ -74,7 +64,7 @@ function MainComponent() {
     const saveBtn = () => {
 
         setMainState({ ...mainState, clicked: '' });
-        dispatch(addWorker(mainState))
+        dispatch(addWorker(mainState)) 
         .then(() => {
             // input값 초기화 -> 메인에서 인풋값 공란으로
            setMainState({ no: '', name: '', phone: '', email: '', clicked: '' })
@@ -89,7 +79,7 @@ function MainComponent() {
 
    switch(mainState.clicked){
         case 'search' :  //search 결과
-            return (   
+            return  (   
                 <div>
                     <h2>Worker Info</h2>
                     <table>
@@ -146,7 +136,7 @@ function MainComponent() {
         case 'edit' : 
             return (
                 <div>
-                    <EditWorkerComponent mainState={mainState} />
+                    <EditWorkerComponent workerType ={workerType} />
                 </div>
             )
         default  :
