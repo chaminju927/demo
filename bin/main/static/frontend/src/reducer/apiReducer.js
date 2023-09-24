@@ -1,9 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.apiReducer = exports.editWorker = exports.deleteWorker = exports.getWorker = exports.addWorker = void 0;
+exports.apiReducer = exports.editWorker = exports.deleteWorker = exports.getWorker = exports.addWorker = exports.initialState = void 0;
 const tslib_1 = require("tslib");
 const toolkit_1 = require("@reduxjs/toolkit");
 const axios_1 = tslib_1.__importDefault(require("axios"));
+//import { RootState } from "src/store";
+exports.initialState = {
+    loading: false,
+    error: "",
+    data: [],
+};
 exports.addWorker = (0, toolkit_1.createAsyncThunk)("WORKER/POST", (mainState) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
     const response = yield axios_1.default.post('/worker', mainState);
     return response;
@@ -23,7 +29,7 @@ exports.editWorker = (0, toolkit_1.createAsyncThunk)("WORKER/PUT", (editState) =
 }));
 exports.apiReducer = (0, toolkit_1.createSlice)({
     name: 'WORKER',
-    initialState,
+    initialState: exports.initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
@@ -36,14 +42,14 @@ exports.apiReducer = (0, toolkit_1.createSlice)({
             const data = action.payload;
             state.data = data;
         })
-            .addCase(exports.getWorker.rejected, (state, payload) => {
+            .addCase(exports.getWorker.rejected, (state, action) => {
             state.loading = false;
-            state.error = payload;
+            state.error = action.payload;
         })
             .addCase(exports.addWorker.fulfilled, (state, action) => {
             state.loading = false;
             state.error = null;
-            state.data = data;
+            state.data = action.payload;
         })
             .addCase(exports.addWorker.rejected, (state, action) => {
             state.loading = false;
@@ -55,19 +61,18 @@ exports.apiReducer = (0, toolkit_1.createSlice)({
         })
             .addCase(exports.deleteWorker.rejected, (state, action) => {
             state.loading = false;
-            state.error = action.error.message;
+            state.error = action.payload;
         })
             // .addCase(editWorker.pending, (state: RootState) => {
             //   state.loading = true;
             // }
             .addCase(exports.editWorker.fulfilled, (state, action) => {
             state.loading = false;
-            const data = action.payload;
-            state.data = data;
+            state.data = action.payload;
         })
             .addCase(exports.editWorker.rejected, (state, action) => {
             state.loading = false;
-            state.error = action.error.message;
+            state.error = action.payload;
         });
     }
 });

@@ -1,7 +1,13 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { RootState } from "src/store";
+import { workerType, result } from "src/types/common";
+//import { RootState } from "src/store";
 
+export const initialState: result = { 
+  loading: false,
+  error: "",
+  data: [],
+};
 export const addWorker = createAsyncThunk(
   "WORKER/POST" as const, 
     async (mainState: workerType) => {  
@@ -35,49 +41,48 @@ export const apiReducer = createSlice({
   name: 'WORKER',
   initialState,
   reducers: {},
-  extraReducers: (builder) => {  // 외부에서 정의된 액션크리에이터 사용시 extraReducers사용
+  extraReducers: (builder: any) => {  // 외부에서 정의된 액션크리에이터 사용시 extraReducers사용
     builder
       // .addCase(getWorker.pending, (state) => {  
       //   state.loading = true;
       // })
-      .addCase(getWorker.fulfilled, (state: RootState, action: PayloadAction<workerType>) => {
+      .addCase(getWorker.fulfilled, (state:any, action:any) => {
         state.loading = false;
         state.error = null;
         const data = action.payload; 
         state.data = data;
       })
-      .addCase(getWorker.rejected, (state, payload) => {
+      .addCase(getWorker.rejected, (state:any, action:any) => {
         state.loading = false;
-        state.error = payload;
+        state.error = action.payload;
       })
-      .addCase(addWorker.fulfilled, (state: RootState, action) => {
+      .addCase(addWorker.fulfilled, (state:any, action:any) => {
         state.loading = false;
         state.error = null;
-        state.data = data;
+        state.data = action.payload;
       })
-      .addCase(addWorker.rejected, (state: RootState, action) => {
+      .addCase(addWorker.rejected, (state:any, action:any) => {
         state.loading = false;
         state.error = action.error.message;
       })
-      .addCase(deleteWorker.fulfilled, (state: RootState) => {
+      .addCase(deleteWorker.fulfilled, (state:any) => {
         state.loading = false;
         state.data = {};
       })
-      .addCase(deleteWorker.rejected, (state: RootState, action) => {
+      .addCase(deleteWorker.rejected, (state:any, action:any) => {
         state.loading = false;
-        state.error = action.error.message;
+        state.error = action.payload;
       })
       // .addCase(editWorker.pending, (state: RootState) => {
       //   state.loading = true;
       // }
-      .addCase(editWorker.fulfilled, (state: RootState, action: PayloadAction<workerType>) => {
+      .addCase(editWorker.fulfilled, (state:any, action:any) => {
         state.loading = false;
-        const data = action.payload;
-        state.data = data;
+        state.data =  action.payload;
       })
-      .addCase(editWorker.rejected, (state: RootState, action) => {
+      .addCase(editWorker.rejected, (state:any, action:any) => {
       state.loading = false;
-      state.error = action.error.message;
+      state.error = action.payload;
     });
   }
 });

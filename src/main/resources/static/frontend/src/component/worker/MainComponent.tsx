@@ -1,16 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getWorker, deleteWorker, addWorker, workerType } from '../../reducer/apiReducer';
+import { getWorker, deleteWorker, addWorker} from '../../reducer/apiReducer';
 import axios from 'axios';
-import EditWorkerComponent from './EditWorkerComponent';
+//import EditWorkerComponent from './EditWorkerComponent';
 import { RootState, AppDispatch } from 'src/store';
-
+import { newType, dataType } from 'src/types/common';
 
 
 function MainComponent(): JSX.Element {
+   
     const [workerData, setWorkerData] = useState<dataType[]>([]); 
-    const [mainState, setMainState] = useState<newType[]>([]);
-    
+    const [mainState, setMainState] = useState<newType>({
+      data : 
+        {  
+            no: 0,
+            name: '',
+            phone: 0,
+            email: ''
+        },
+        clicked: ''
+    });
 
  
     useEffect(() => { 
@@ -36,7 +45,7 @@ function MainComponent(): JSX.Element {
     //search worker
     const searchBtn = () => {
         //console.log(mainState);
-       // dispatch(getWorker(mainState.no)); 파라미터 수정
+        dispatch(getWorker(mainState.data.no)); //파라미터 수정
         setMainState({ ...mainState, clicked : 'search' });
     }
 
@@ -45,31 +54,31 @@ function MainComponent(): JSX.Element {
         setMainState({ ...mainState, clicked: 'add'});
     }
     //delete 요청
-    const deleteBtn = () => {
-        setMainState({ ...mainState, no : data.no }); 
-        dispatch(deleteWorker(mainState.no)); //파라미터 수정
-        setMainState({ no: '', name: '', phone: '', email: '', clicked: '' });
-    }
+    // const deleteBtn = () => {
+    //     setMainState({ ...mainState, data.no : data.no }); 
+    //     dispatch(deleteWorker(mainState.no)); //파라미터 수정
+    //     setMainState({ no: '', name: '', phone: '', email: '', clicked: '' });
+    // }
 
-    const mainBtn = () => {
-        setMainState({ no: '', name: '', phone: '', email: '', clicked: ''}); 
-    }
+    // const mainBtn = () => {
+    //     setMainState({ no: '', name: '', phone: '', email: '', clicked: ''}); 
+    // }
 
-    const editBtn = () => {
-       setMainState({ no: data.no, name: data.name, phone: data.phone, email: data.email, clicked: 'edit'});
-       //console.log({mainState});
-    }
+    // const editBtn = () => {
+    //    setMainState({ no: data.no, name: data.name, phone: data.phone, email: data.email, clicked: 'edit'});
+    //    //console.log({mainState});
+    // }
 
-    // post요청
-    const saveBtn = () => {
+    // // post요청
+    // const saveBtn = () => {
 
-        setMainState({ ...mainState, clicked: '' });
-        dispatch(addWorker(mainState)) 
-        .then(() => {
-            // input값 초기화 -> 메인에서 인풋값 공란으로
-           setMainState({ no: '', name: '', phone: '', email: '', clicked: '' })
-        });
-    };
+    //     setMainState({ ...mainState, clicked: '' });
+    //     dispatch(addWorker(mainState)) 
+    //     .then(() => {
+    //         // input값 초기화 -> 메인에서 인풋값 공란으로
+    //        setMainState({ no: 0, name: '', phone: '', email: '', clicked: '' })
+    //     });
+    // };
 
     const addChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setMainState({ ...mainState, [e.target.name]: e.target.value });
@@ -92,58 +101,58 @@ function MainComponent(): JSX.Element {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>{data.no}</td>
-                                <td>{data.name}</td>
-                                <td>{data.email}</td>
-                                <td>{data.phone}</td>
+                            {/* <tr>
+                                <td>{workerData.no}</td>
+                                <td>{workerData.name}</td>
+                                <td>{workerData.email}</td>
+                                <td>{workerData.phone}</td>
                                 <td>
                                     <button onClick={() => editBtn()}>edit</button>
                                     <button onClick={() => deleteBtn()}>delete</button>
                                 </td>
-                            </tr>
+                            </tr> */}
                         </tbody>
                     </table>
-                    <button onClick={() => mainBtn()}>main</button>
+                    {/* <button onClick={() => mainBtn()}>main</button> */}
                     <button onClick={() => addBtn()}>add</button> 
                 </div>
                 );
-        case 'add':
-            return (
-                <div>
-                <h2>Add Worker</h2>
-                <form>
-                    <div>
-                        <label>No:</label>
-                        <input type="number" name="no"  onChange={addChange} value={mainState.no}/>
-                    </div>
-                    <div>
-                        <label>Name:</label>
-                        <input type="text" name="name" onChange={addChange} value={mainState.name} />
-                    </div>
-                    <div>
-                        <label>Email:</label>
-                        <input type="text" name="email" onChange={addChange} value={mainState.email} />
-                    </div>
-                    <div>
-                        <label>Phone:</label>
-                        <input type="number" name="phone" onChange={addChange} value={mainState.phone}/>
-                    </div>
-                    <button onClick={() => saveBtn()}>save</button>
-                </form>
-            </div>
-            );
-        case 'edit' : 
-            return (
-                <div>
-                    <EditWorkerComponent workerType ={workerType} />
-                </div>
-            )
+        // case 'add':
+        //     return (
+        //         <div>
+        //         <h2>Add Worker</h2>
+        //         <form>
+        //             <div>
+        //                 <label>No:</label>
+        //                 <input type="number" name="no"  onChange={addChange} value={mainState.no}/>
+        //             </div>
+        //             <div>
+        //                 <label>Name:</label>
+        //                 <input type="text" name="name" onChange={addChange} value={mainState.name} />
+        //             </div>
+        //             <div>
+        //                 <label>Email:</label>
+        //                 <input type="text" name="email" onChange={addChange} value={mainState.email} />
+        //             </div>
+        //             <div>
+        //                 <label>Phone:</label>
+        //                 <input type="number" name="phone" onChange={addChange} value={mainState.phone}/>
+        //             </div>
+        //             <button onClick={() => saveBtn()}>save</button>
+        //         </form>
+        //     </div>
+        //     );
+        // case 'edit' : 
+        //     return (
+        //         <div>
+        //             <EditWorkerComponent workerType ={workerType} />
+        //         </div>
+        //     )
         default  :
             return (
                 <div>
                     <h2>Search</h2>
-                    <input type="number" name="no" placeholder="사번 입력" onChange={inputNoChange} value={mainState.no}  />
+                    <input type="number" name="no" placeholder="사번 입력" onChange={inputNoChange}   />
                     <button onClick={() =>searchBtn()}>search</button>
                     <button onClick={() => addBtn()}>add</button> 
 

@@ -1,12 +1,7 @@
-import React from 'react';
-import {createRoot} from 'react-dom/client';
-import * as ReactDOM from 'react-dom';
-import App from './App';
-import { Provider } from 'react-redux';
-import { configureStore } from '@reduxjs/toolkit';
-import {composeWithDevTools} from 'redux-devtools-extension';
-import apiReducer from './reducer/apiReducer';
-import { store } from './store';
+// import React from 'react';
+// import App from './App';
+// import { Provider } from 'react-redux';
+// import { store } from './store';
 
 
 // export const store = configureStore(
@@ -16,13 +11,34 @@ import { store } from './store';
 // );
 // export type RootState = ReturnType<typeof apiReducer.reducer>;
 
+// const rootElement = document.getElementById('root');
+// if(!rootElement) throw new Error('Failed to find the root element');
+// const root = createRoot(rootElement);  
+// root.render(
+//   <React.StrictMode>
+//     <Provider store={store}>
+//     <App />
+//     </Provider>
+//   </React.StrictMode>
+// );
+import React from 'react';
+import ReactDOM from 'react-dom'; // ReactDOM 라이브러리 임포트
+import App from './App';
+import { Provider } from 'react-redux';
+import { store } from './store';
+
 const rootElement = document.getElementById('root');
-if(!rootElement) throw new Error('Failed to find the root element');
-const root = createRoot(rootElement);  
-root.render(
+if (!rootElement) throw new Error('Failed to find the root element');
+ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-    <App />
+      <App />
     </Provider>
-  </React.StrictMode>
+  </React.StrictMode>,
+  rootElement // 렌더링할 DOM 요소 지정
 );
+
+
+
+
+

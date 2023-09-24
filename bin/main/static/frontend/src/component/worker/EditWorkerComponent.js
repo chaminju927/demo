@@ -1,42 +1,66 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-const jsx_runtime_1 = require("react/jsx-runtime");
-const react_1 = require("react");
-const react_redux_1 = require("react-redux");
-const apiReducer_1 = require("../../reducer/apiReducer");
-const MainComponent_1 = tslib_1.__importDefault(require("./MainComponent"));
-function EditWorkerComponent(Info) {
-    const { no, name, email, phone } = Info;
-    const [editState, setEditState] = (0, react_1.useState)({
-        no: no,
-        name: name,
-        phone: phone,
-        email: email
-    });
-    const dispatch = (0, react_redux_1.useDispatch)();
-    const { data } = (0, react_redux_1.useSelector)((state) => {
-        return {
-            //data: state.reducer.data //스토어에서 다시 확인
-            data: state.data
-        };
-    });
-    (0, react_1.useEffect)(() => {
-        // console.log(props);
-        // console.log(data);
-    }, [editState]);
-    const editChange = (e) => {
-        // console.log({editState});
-        setEditState(Object.assign(Object.assign({}, editState), { [e.target.name]: e.target.value }));
-        //console.log({editState});
-    };
-    // put 요청
-    const saveBtn = () => {
-        dispatch((0, apiReducer_1.editWorker)(editState))
-            .then(() => {
-            return ((0, jsx_runtime_1.jsx)(MainComponent_1.default, {}));
-        });
-    };
-    return ((0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("h2", { children: "Edit Worker" }), (0, jsx_runtime_1.jsxs)("form", { children: [(0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("label", { children: "No:" }), (0, jsx_runtime_1.jsx)("input", { type: "number", name: "no", value: data.no, readOnly: true })] }), (0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("label", { children: "Name:" }), (0, jsx_runtime_1.jsx)("input", { type: "text", name: "name", defaultValue: data.name, onChange: editChange })] }), (0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("label", { children: "Email:" }), (0, jsx_runtime_1.jsx)("input", { type: "text", name: "email", defaultValue: data.email, onChange: editChange })] }), (0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("label", { children: "Phone:" }), (0, jsx_runtime_1.jsx)("input", { type: "number", name: "phone", defaultValue: data.phone, onChange: editChange })] }), (0, jsx_runtime_1.jsx)("button", { onClick: () => saveBtn(), children: "save" })] })] }));
-}
-exports.default = EditWorkerComponent;
+// import React, { useEffect, useState } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { editWorker } from '../../reducer/apiReducer';
+// import MainComponent from './MainComponent';
+// import { RootState, AppDispatch } from 'src/store';
+// import { dataType } from 'src/types';
+// function EditWorkerComponent(Info: dataType) : JSX.Element {  
+//     const {no, name, email, phone} = Info;
+//     const [editState, setEditState] = useState({
+//         no: no,
+//         name: name,
+//         phone: phone,
+//         email: email
+//     });
+//     const dispatch: AppDispatch = useDispatch();
+//     const {data} = useSelector((state: RootState) => { 
+//         return {
+//             //data: state.reducer.data //스토어에서 다시 확인
+//             data: state.data
+//         };
+//     });
+//     useEffect(() => {
+//         // console.log(props);
+//         // console.log(data);
+//     }, [editState]);
+//     const editChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//         // console.log({editState});
+//         setEditState({ ...editState, [e.target.name]: e.target.value });
+//         //console.log({editState});
+//     }
+//     // put 요청
+//     const saveBtn = () => {
+//         dispatch(editWorker(editState))
+//         .then(() => {
+//            return(
+//                < MainComponent />
+//            );
+//         });
+//     }
+//     return (
+//         <div>
+//             <h2>Edit Worker</h2>
+//             <form>
+//                 <div>
+//                     <label>No:</label>
+//                     <input type="number" name="no" value={data.no} readOnly={true} />
+//                 </div>
+//                 <div>
+//                     <label>Name:</label>
+//                     <input type="text" name="name" defaultValue={data.name} onChange={editChange}  />
+//                 </div>
+//                 <div>
+//                     <label>Email:</label>
+//                     <input type="text" name="email" defaultValue={data.email} onChange={editChange} />
+//                 </div>
+//                 <div>
+//                     <label>Phone:</label>
+//                     <input type="number" name="phone" defaultValue={data.phone}  onChange={editChange} />
+//                 </div>
+//                 <button onClick={() => saveBtn()}>save</button>
+//             </form>
+//         </div>
+//     );
+// }
+// export default EditWorkerComponent;
