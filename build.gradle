@@ -42,34 +42,31 @@ configurations {
     extendsFrom annotationProcessor
   }
 }
-// run 명령으로 실행시킬 java Class 이름
-//application {
-//    mainClass = 'demo.example.DemoApplication'
-//}
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-security'
+	//implementation 'org.springframework.boot:spring-boot-starter-security'
 //	implementation "io.projectreactor:reactor-core:5.3.14"
 	
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.2'
 	compileOnly "org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.2"
-    implementation 'org.mariadb.jdbc:mariadb-java-client:2.1.2'
+    //implementation 'org.mariadb.jdbc:mariadb-java-client:2.1.2'
   	
-	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-	
+	//implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	 //runtimeOnly 'com.h2database:h2'
+    runtimeOnly 'org.postgresql:postgresql'
 	 
 	 implementation 'org.springframework.boot:spring-boot-starter-web'
 	 
-     implementation 'javax.servlet:jstl'
+     //implementation 'javax.servlet:jstl'
     implementation "org.apache.tomcat.embed:tomcat-embed-jasper"
-	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+	//runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     
    compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 	
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.security:spring-security-test'
+	//testImplementation 'org.springframework.security:spring-security-test'
 }
 
 tasks.named('test') {
@@ -85,45 +82,4 @@ tasks.withType(JavaCompile) {
     targetCompatibility = '1.8'
 }
 
-//bootRun {
-//    String activeProfile = System.properties['spring.profiles.active']
-//    systemProperty "spring.profiles.active", activeProfile
-//}
 
-//build 될 때 React 프로젝트가 먼저 build되고, 
-//결과물을 SpringBoot 프로젝트 build 결과물에 포함시킨다
-//def frontendDir = "$projectDir/frontend"
-
-//sourceSets {
-//	main {
-//		resources {
-//		 //srcDirs = ["$projectDir/src/main/resources/static/frontend"]
-//		srcDirs = ["$frontendDir/build", "$projectDir/src/main/resources"]
-//		}
-//	}
-//}
-
-//processResources { dependsOn "copyReactBuildFiles" }
-
-//task installReact(type: Exec) {
- //   workingDir "$frontendDir"
-//    inputs.dir "$frontendDir"
-//    group = BasePlugin.BUILD_GROUP
-//    commandLine "npm", "audit", "fix"
-//    commandLine 'npm', 'install'
-//}
-
-//task buildReact(type: Exec) {
-//    dependsOn "installReact"
-//    workingDir "$frontendDir"
-//    inputs.dir "$frontendDir"
-//    group = BasePlugin.BUILD_GROUP
-//    commandLine "npm", "run-script", "build"
-//}
-
-
-//task copyReactBuildFiles(type: Copy) {
-//	dependsOn "buildReact"
-//	from "$frontendDir/build"
-//	into "$projectDir/src/main/resources/static"
-//}

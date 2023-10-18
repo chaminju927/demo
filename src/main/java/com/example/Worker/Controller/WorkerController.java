@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.example.Worker.Service.WorkerService;
 import com.example.Worker.Vo.Worker;
 
@@ -36,13 +35,13 @@ public class WorkerController {
 
 	@GetMapping("/{no}")
 	public Worker list(@PathVariable("no") int no) {
-		//System.out.println(no);
+		System.out.println(no);
 		return workerService.get(no);
 	}
 	
 	@GetMapping
 	public Object list() {
-		//System.out.println(no);
+		//System.out.print("요청 도착");
 		return workerService.getAll();
 	}
 

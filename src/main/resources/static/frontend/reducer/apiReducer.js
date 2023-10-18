@@ -1,14 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.apiReducer = exports.editWorker = exports.deleteWorker = exports.getWorker = exports.addWorker = exports.initialState = void 0;
+exports.apiReducer = exports.editWorker = exports.deleteWorker = exports.getWorker = exports.addWorker = void 0;
 const tslib_1 = require("tslib");
 const toolkit_1 = require("@reduxjs/toolkit");
 const axios_1 = tslib_1.__importDefault(require("axios"));
 //import { RootState } from "src/store";
-exports.initialState = {
+const initialState = {
     loading: false,
-    error: "",
-    data: [],
+    error: '',
+    data: []
 };
 exports.addWorker = (0, toolkit_1.createAsyncThunk)("WORKER/POST", (mainState) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
     const response = yield axios_1.default.post('/worker', mainState);
@@ -29,19 +29,25 @@ exports.editWorker = (0, toolkit_1.createAsyncThunk)("WORKER/PUT", (editState) =
 }));
 exports.apiReducer = (0, toolkit_1.createSlice)({
     name: 'WORKER',
-    initialState: exports.initialState,
+    initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
-            // .addCase(getWorker.pending, (state) => {  
-            //   state.loading = true;
-            // })
-            .addCase(exports.getWorker.fulfilled, (state, action) => {
-            state.loading = false;
-            state.error = null;
-            const data = action.payload;
-            state.data = data;
+            .addCase(exports.getWorker.pending, (state) => {
+            state.loading = true;
         })
+            .addCase(exports.getWorker.fulfilled, (state, { payload }) => {
+            state.loading = false;
+            // state.error = null;
+            const data = payload;
+            // state.data = data;
+        })
+            // .addCase(getWorker.fulfilled, (state: any, action: any) => {
+            //   state.loading = false;
+            //  // state.error = null;
+            //   const data = action.payload; 
+            //  // state.data = data;
+            // })
             .addCase(exports.getWorker.rejected, (state, action) => {
             state.loading = false;
             state.error = action.payload;
